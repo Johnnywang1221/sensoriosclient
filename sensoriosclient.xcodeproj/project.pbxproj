@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0496010B19CAF89E00F2D67E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010A19CAF89E00F2D67E /* Foundation.framework */; };
+		0496010D19CAF89E00F2D67E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010C19CAF89E00F2D67E /* CoreGraphics.framework */; };
+		0496010F19CAF89E00F2D67E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010E19CAF89E00F2D67E /* UIKit.framework */; };
+		0496011519CAF89E00F2D67E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0496011319CAF89E00F2D67E /* InfoPlist.strings */; };
+		0496011719CAF89E00F2D67E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496011619CAF89E00F2D67E /* main.m */; };
+		0496011B19CAF89E00F2D67E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496011A19CAF89E00F2D67E /* AppDelegate.m */; };
+		0496011D19CAF89E00F2D67E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0496011C19CAF89E00F2D67E /* Images.xcassets */; };
+		0496012419CAF89E00F2D67E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496012319CAF89E00F2D67E /* XCTest.framework */; };
+		0496012519CAF89E00F2D67E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010A19CAF89E00F2D67E /* Foundation.framework */; };
+		0496012619CAF89E00F2D67E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010E19CAF89E00F2D67E /* UIKit.framework */; };
+		0496012E19CAF89E00F2D67E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0496012C19CAF89E00F2D67E /* InfoPlist.strings */; };
+		0496013019CAF89E00F2D67E /* sensoriosclientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496012F19CAF89E00F2D67E /* sensoriosclientTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0496012719CAF89E00F2D67E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 049600FF19CAF89E00F2D67E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0496010619CAF89E00F2D67E;
+			remoteInfo = sensoriosclient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0496010719CAF89E00F2D67E /* sensoriosclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sensoriosclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0496010A19CAF89E00F2D67E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0496010C19CAF89E00F2D67E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0496010E19CAF89E00F2D67E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0496011219CAF89E00F2D67E /* sensoriosclient-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sensoriosclient-Info.plist"; sourceTree = "<group>"; };
+		0496011419CAF89E00F2D67E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0496011619CAF89E00F2D67E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0496011819CAF89E00F2D67E /* sensoriosclient-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sensoriosclient-Prefix.pch"; sourceTree = "<group>"; };
+		0496011919CAF89E00F2D67E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0496011A19CAF89E00F2D67E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0496011C19CAF89E00F2D67E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0496012219CAF89E00F2D67E /* sensoriosclientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sensoriosclientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0496012319CAF89E00F2D67E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0496012B19CAF89E00F2D67E /* sensoriosclientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sensoriosclientTests-Info.plist"; sourceTree = "<group>"; };
+		0496012D19CAF89E00F2D67E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0496012F19CAF89E00F2D67E /* sensoriosclientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sensoriosclientTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0496010419CAF89E00F2D67E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0496010D19CAF89E00F2D67E /* CoreGraphics.framework in Frameworks */,
+				0496010F19CAF89E00F2D67E /* UIKit.framework in Frameworks */,
+				0496010B19CAF89E00F2D67E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0496011F19CAF89E00F2D67E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0496012419CAF89E00F2D67E /* XCTest.framework in Frameworks */,
+				0496012619CAF89E00F2D67E /* UIKit.framework in Frameworks */,
+				0496012519CAF89E00F2D67E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		049600FE19CAF89D00F2D67E = {
+			isa = PBXGroup;
+			children = (
+				0496011019CAF89E00F2D67E /* sensoriosclient */,
+				0496012919CAF89E00F2D67E /* sensoriosclientTests */,
+				0496010919CAF89E00F2D67E /* Frameworks */,
+				0496010819CAF89E00F2D67E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0496010819CAF89E00F2D67E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0496010719CAF89E00F2D67E /* sensoriosclient.app */,
+				0496012219CAF89E00F2D67E /* sensoriosclientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0496010919CAF89E00F2D67E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0496010A19CAF89E00F2D67E /* Foundation.framework */,
+				0496010C19CAF89E00F2D67E /* CoreGraphics.framework */,
+				0496010E19CAF89E00F2D67E /* UIKit.framework */,
+				0496012319CAF89E00F2D67E /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0496011019CAF89E00F2D67E /* sensoriosclient */ = {
+			isa = PBXGroup;
+			children = (
+				0496011919CAF89E00F2D67E /* AppDelegate.h */,
+				0496011A19CAF89E00F2D67E /* AppDelegate.m */,
+				0496011C19CAF89E00F2D67E /* Images.xcassets */,
+				0496011119CAF89E00F2D67E /* Supporting Files */,
+			);
+			path = sensoriosclient;
+			sourceTree = "<group>";
+		};
+		0496011119CAF89E00F2D67E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0496011219CAF89E00F2D67E /* sensoriosclient-Info.plist */,
+				0496011319CAF89E00F2D67E /* InfoPlist.strings */,
+				0496011619CAF89E00F2D67E /* main.m */,
+				0496011819CAF89E00F2D67E /* sensoriosclient-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0496012919CAF89E00F2D67E /* sensoriosclientTests */ = {
+			isa = PBXGroup;
+			children = (
+				0496012F19CAF89E00F2D67E /* sensoriosclientTests.m */,
+				0496012A19CAF89E00F2D67E /* Supporting Files */,
+			);
+			path = sensoriosclientTests;
+			sourceTree = "<group>";
+		};
+		0496012A19CAF89E00F2D67E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0496012B19CAF89E00F2D67E /* sensoriosclientTests-Info.plist */,
+				0496012C19CAF89E00F2D67E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0496010619CAF89E00F2D67E /* sensoriosclient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0496013319CAF89E00F2D67E /* Build configuration list for PBXNativeTarget "sensoriosclient" */;
+			buildPhases = (
+				0496010319CAF89E00F2D67E /* Sources */,
+				0496010419CAF89E00F2D67E /* Frameworks */,
+				0496010519CAF89E00F2D67E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sensoriosclient;
+			productName = sensoriosclient;
+			productReference = 0496010719CAF89E00F2D67E /* sensoriosclient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0496012119CAF89E00F2D67E /* sensoriosclientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0496013619CAF89E00F2D67E /* Build configuration list for PBXNativeTarget "sensoriosclientTests" */;
+			buildPhases = (
+				0496011E19CAF89E00F2D67E /* Sources */,
+				0496011F19CAF89E00F2D67E /* Frameworks */,
+				0496012019CAF89E00F2D67E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0496012819CAF89E00F2D67E /* PBXTargetDependency */,
+			);
+			name = sensoriosclientTests;
+			productName = sensoriosclientTests;
+			productReference = 0496012219CAF89E00F2D67E /* sensoriosclientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		049600FF19CAF89E00F2D67E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = bnrc;
+				TargetAttributes = {
+					0496012119CAF89E00F2D67E = {
+						TestTargetID = 0496010619CAF89E00F2D67E;
+					};
+				};
+			};
+			buildConfigurationList = 0496010219CAF89E00F2D67E /* Build configuration list for PBXProject "sensoriosclient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 049600FE19CAF89D00F2D67E;
+			productRefGroup = 0496010819CAF89E00F2D67E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0496010619CAF89E00F2D67E /* sensoriosclient */,
+				0496012119CAF89E00F2D67E /* sensoriosclientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0496010519CAF89E00F2D67E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0496011519CAF89E00F2D67E /* InfoPlist.strings in Resources */,
+				0496011D19CAF89E00F2D67E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0496012019CAF89E00F2D67E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0496012E19CAF89E00F2D67E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0496010319CAF89E00F2D67E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0496011B19CAF89E00F2D67E /* AppDelegate.m in Sources */,
+				0496011719CAF89E00F2D67E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0496011E19CAF89E00F2D67E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0496013019CAF89E00F2D67E /* sensoriosclientTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0496012819CAF89E00F2D67E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0496010619CAF89E00F2D67E /* sensoriosclient */;
+			targetProxy = 0496012719CAF89E00F2D67E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0496011319CAF89E00F2D67E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0496011419CAF89E00F2D67E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0496012C19CAF89E00F2D67E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0496012D19CAF89E00F2D67E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0496013119CAF89E00F2D67E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0496013219CAF89E00F2D67E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0496013419CAF89E00F2D67E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sensoriosclient/sensoriosclient-Prefix.pch";
+				INFOPLIST_FILE = "sensoriosclient/sensoriosclient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0496013519CAF89E00F2D67E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sensoriosclient/sensoriosclient-Prefix.pch";
+				INFOPLIST_FILE = "sensoriosclient/sensoriosclient-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0496013719CAF89E00F2D67E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sensoriosclient.app/sensoriosclient";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sensoriosclient/sensoriosclient-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "sensoriosclientTests/sensoriosclientTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		0496013819CAF89E00F2D67E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sensoriosclient.app/sensoriosclient";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sensoriosclient/sensoriosclient-Prefix.pch";
+				INFOPLIST_FILE = "sensoriosclientTests/sensoriosclientTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0496010219CAF89E00F2D67E /* Build configuration list for PBXProject "sensoriosclient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0496013119CAF89E00F2D67E /* Debug */,
+				0496013219CAF89E00F2D67E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0496013319CAF89E00F2D67E /* Build configuration list for PBXNativeTarget "sensoriosclient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0496013419CAF89E00F2D67E /* Debug */,
+				0496013519CAF89E00F2D67E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0496013619CAF89E00F2D67E /* Build configuration list for PBXNativeTarget "sensoriosclientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0496013719CAF89E00F2D67E /* Debug */,
+				0496013819CAF89E00F2D67E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 049600FF19CAF89E00F2D67E /* Project object */;
+}
