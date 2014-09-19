@@ -19,6 +19,9 @@
 		0496012619CAF89E00F2D67E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010E19CAF89E00F2D67E /* UIKit.framework */; };
 		0496012E19CAF89E00F2D67E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0496012C19CAF89E00F2D67E /* InfoPlist.strings */; };
 		0496013019CAF89E00F2D67E /* sensoriosclientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496012F19CAF89E00F2D67E /* sensoriosclientTests.m */; };
+		0496013C19CBC38700F2D67E /* CollectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496013B19CBC38700F2D67E /* CollectionData.m */; };
+		0496014019CBC3C300F2D67E /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496013F19CBC3C300F2D67E /* Upload.m */; };
+		0496014319CBC3E700F2D67E /* RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496014219CBC3E700F2D67E /* RandomString.m */; };
 		CEF7A89319CBB9DB00A57CCF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */; };
 		CEF7A89519CBB9E300A57CCF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */; };
 		CEF7A89E19CBC0EA00A57CCF /* PicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A89D19CBC0EA00A57CCF /* PicInfo.m */; };
@@ -56,6 +59,12 @@
 		0496012B19CAF89E00F2D67E /* sensoriosclientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sensoriosclientTests-Info.plist"; sourceTree = "<group>"; };
 		0496012D19CAF89E00F2D67E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0496012F19CAF89E00F2D67E /* sensoriosclientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sensoriosclientTests.m; sourceTree = "<group>"; };
+		0496013A19CBC38700F2D67E /* CollectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionData.h; sourceTree = "<group>"; };
+		0496013B19CBC38700F2D67E /* CollectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionData.m; sourceTree = "<group>"; };
+		0496013E19CBC3C300F2D67E /* Upload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Upload.h; sourceTree = "<group>"; };
+		0496013F19CBC3C300F2D67E /* Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Upload.m; sourceTree = "<group>"; };
+		0496014119CBC3E700F2D67E /* RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomString.h; sourceTree = "<group>"; };
+		0496014219CBC3E700F2D67E /* RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomString.m; sourceTree = "<group>"; };
 		CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CEF7A89C19CBC0EA00A57CCF /* PicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicInfo.h; sourceTree = "<group>"; };
@@ -133,6 +142,8 @@
 		0496011019CAF89E00F2D67E /* sensoriosclient */ = {
 			isa = PBXGroup;
 			children = (
+				0496013D19CBC39300F2D67E /* Model */,
+				0496013919CBC33F00F2D67E /* Utility */,
 				0496011919CAF89E00F2D67E /* AppDelegate.h */,
 				0496011A19CAF89E00F2D67E /* AppDelegate.m */,
 				CEF7A8A519CBC18100A57CCF /* MainPageViewController.h */,
@@ -141,8 +152,6 @@
 				CEF7A8A819CBC18100A57CCF /* RealTimeViewController.m */,
 				CEF7A8AB19CBC19500A57CCF /* SettingViewController.h */,
 				CEF7A8AC19CBC19500A57CCF /* SettingViewController.m */,
-				CEF7A89C19CBC0EA00A57CCF /* PicInfo.h */,
-				CEF7A89D19CBC0EA00A57CCF /* PicInfo.m */,
 				CEF7A89F19CBC11C00A57CCF /* Sqlite.h */,
 				CEF7A8A019CBC11C00A57CCF /* Sqlite.m */,
 				CEF7A8A219CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.h */,
@@ -180,6 +189,28 @@
 				0496012C19CAF89E00F2D67E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0496013919CBC33F00F2D67E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0496014119CBC3E700F2D67E /* RandomString.h */,
+				0496014219CBC3E700F2D67E /* RandomString.m */,
+				0496013E19CBC3C300F2D67E /* Upload.h */,
+				0496013F19CBC3C300F2D67E /* Upload.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		0496013D19CBC39300F2D67E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7A89C19CBC0EA00A57CCF /* PicInfo.h */,
+				CEF7A89D19CBC0EA00A57CCF /* PicInfo.m */,
+				0496013A19CBC38700F2D67E /* CollectionData.h */,
+				0496013B19CBC38700F2D67E /* CollectionData.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +315,9 @@
 				CEF7A8A119CBC11C00A57CCF /* Sqlite.m in Sources */,
 				CEF7A89E19CBC0EA00A57CCF /* PicInfo.m in Sources */,
 				CEF7A8A419CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
+				0496013C19CBC38700F2D67E /* CollectionData.m in Sources */,
+				0496014319CBC3E700F2D67E /* RandomString.m in Sources */,
+				0496014019CBC3C300F2D67E /* Upload.m in Sources */,
 				CEF7A8AD19CBC19500A57CCF /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
