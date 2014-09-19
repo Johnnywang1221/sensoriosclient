@@ -7,6 +7,9 @@
 //  Modified by Vivian
 
 #import "AppDelegate.h"
+#import "MainPageViewController.h"
+#import "RealTimeViewController.h"
+#import "SettingViewController.h"
 
 @implementation AppDelegate
 
@@ -14,10 +17,24 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    // UI of the app:tab based.
+    UITabBarController *tabBarController = [[UITabBarController alloc]init];
+    //mainpage viewController
+    MainPageViewController *mainPageViewController = [[MainPageViewController alloc]init];
+    UINavigationController *mainPageNav = [[UINavigationController alloc]initWithRootViewController:mainPageViewController];
+    //realTime viewController
+    RealTimeViewController *realTimeViewController = [[RealTimeViewController alloc]init];
+    UINavigationController *realTimeNav = [[UINavigationController alloc]initWithRootViewController:realTimeViewController];
+    //setting viewController
+    SettingViewController *settingViewController = [[SettingViewController alloc]init];
+    UINavigationController *settingNav = [[UINavigationController alloc]initWithRootViewController:settingViewController];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:mainPageNav, realTimeNav, settingNav, nil];
+    self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -19,6 +19,14 @@
 		0496012619CAF89E00F2D67E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010E19CAF89E00F2D67E /* UIKit.framework */; };
 		0496012E19CAF89E00F2D67E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0496012C19CAF89E00F2D67E /* InfoPlist.strings */; };
 		0496013019CAF89E00F2D67E /* sensoriosclientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496012F19CAF89E00F2D67E /* sensoriosclientTests.m */; };
+		CEF7A88719CBB92A00A57CCF /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A88419CBB92A00A57CCF /* MainPageViewController.m */; };
+		CEF7A88819CBB92A00A57CCF /* RealTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A88619CBB92A00A57CCF /* RealTimeViewController.m */; };
+		CEF7A88B19CBB94600A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A88A19CBB94600A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		CEF7A89119CBB9AE00A57CCF /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A89019CBB9AE00A57CCF /* SettingViewController.m */; };
+		CEF7A89319CBB9DB00A57CCF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */; };
+		CEF7A89519CBB9E300A57CCF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */; };
+		CEF7A89819CBBAD300A57CCF /* PicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A89719CBBAD300A57CCF /* PicInfo.m */; };
+		CEF7A89B19CBBAE700A57CCF /* Sqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A89A19CBBAE700A57CCF /* Sqlite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +56,20 @@
 		0496012B19CAF89E00F2D67E /* sensoriosclientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sensoriosclientTests-Info.plist"; sourceTree = "<group>"; };
 		0496012D19CAF89E00F2D67E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0496012F19CAF89E00F2D67E /* sensoriosclientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sensoriosclientTests.m; sourceTree = "<group>"; };
+		CEF7A88319CBB92A00A57CCF /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = ../../sensor/sensor/MainPageViewController.h; sourceTree = "<group>"; };
+		CEF7A88419CBB92A00A57CCF /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = ../../sensor/sensor/MainPageViewController.m; sourceTree = "<group>"; };
+		CEF7A88519CBB92A00A57CCF /* RealTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RealTimeViewController.h; path = ../../sensor/sensor/RealTimeViewController.h; sourceTree = "<group>"; };
+		CEF7A88619CBB92A00A57CCF /* RealTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RealTimeViewController.m; path = ../../sensor/sensor/RealTimeViewController.m; sourceTree = "<group>"; };
+		CEF7A88919CBB94600A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ALAssetsLibrary+CustomPhotoAlbum.h"; path = "../../sensor/sensor/ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		CEF7A88A19CBB94600A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ALAssetsLibrary+CustomPhotoAlbum.m"; path = "../../sensor/sensor/ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		CEF7A88F19CBB9AE00A57CCF /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = ../../sensor/sensor/SettingViewController.h; sourceTree = "<group>"; };
+		CEF7A89019CBB9AE00A57CCF /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = ../../sensor/sensor/SettingViewController.m; sourceTree = "<group>"; };
+		CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CEF7A89619CBBAD300A57CCF /* PicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PicInfo.h; path = ../../sensorDemo/sensorDemo/PicInfo.h; sourceTree = "<group>"; };
+		CEF7A89719CBBAD300A57CCF /* PicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PicInfo.m; path = ../../sensorDemo/sensorDemo/PicInfo.m; sourceTree = "<group>"; };
+		CEF7A89919CBBAE700A57CCF /* Sqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sqlite.h; path = ../../sensorDemo/sensorDemo/Sqlite.h; sourceTree = "<group>"; };
+		CEF7A89A19CBBAE700A57CCF /* Sqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sqlite.m; path = ../../sensorDemo/sensorDemo/Sqlite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF7A89519CBB9E300A57CCF /* CoreLocation.framework in Frameworks */,
+				CEF7A89319CBB9DB00A57CCF /* libsqlite3.dylib in Frameworks */,
 				0496010D19CAF89E00F2D67E /* CoreGraphics.framework in Frameworks */,
 				0496010F19CAF89E00F2D67E /* UIKit.framework in Frameworks */,
 				0496010B19CAF89E00F2D67E /* Foundation.framework in Frameworks */,
@@ -96,6 +120,8 @@
 		0496010919CAF89E00F2D67E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */,
+				CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */,
 				0496010A19CAF89E00F2D67E /* Foundation.framework */,
 				0496010C19CAF89E00F2D67E /* CoreGraphics.framework */,
 				0496010E19CAF89E00F2D67E /* UIKit.framework */,
@@ -107,8 +133,20 @@
 		0496011019CAF89E00F2D67E /* sensoriosclient */ = {
 			isa = PBXGroup;
 			children = (
+				CEF7A88919CBB94600A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				CEF7A88A19CBB94600A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				0496011919CAF89E00F2D67E /* AppDelegate.h */,
 				0496011A19CAF89E00F2D67E /* AppDelegate.m */,
+				CEF7A88319CBB92A00A57CCF /* MainPageViewController.h */,
+				CEF7A88419CBB92A00A57CCF /* MainPageViewController.m */,
+				CEF7A88519CBB92A00A57CCF /* RealTimeViewController.h */,
+				CEF7A88619CBB92A00A57CCF /* RealTimeViewController.m */,
+				CEF7A88F19CBB9AE00A57CCF /* SettingViewController.h */,
+				CEF7A89019CBB9AE00A57CCF /* SettingViewController.m */,
+				CEF7A89619CBBAD300A57CCF /* PicInfo.h */,
+				CEF7A89719CBBAD300A57CCF /* PicInfo.m */,
+				CEF7A89919CBBAE700A57CCF /* Sqlite.h */,
+				CEF7A89A19CBBAE700A57CCF /* Sqlite.m */,
 				0496011C19CAF89E00F2D67E /* Images.xcassets */,
 				0496011119CAF89E00F2D67E /* Supporting Files */,
 			);
@@ -239,8 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF7A88B19CBB94600A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				0496011B19CAF89E00F2D67E /* AppDelegate.m in Sources */,
+				CEF7A88819CBB92A00A57CCF /* RealTimeViewController.m in Sources */,
 				0496011719CAF89E00F2D67E /* main.m in Sources */,
+				CEF7A88719CBB92A00A57CCF /* MainPageViewController.m in Sources */,
+				CEF7A89B19CBBAE700A57CCF /* Sqlite.m in Sources */,
+				CEF7A89119CBB9AE00A57CCF /* SettingViewController.m in Sources */,
+				CEF7A89819CBBAD300A57CCF /* PicInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +481,7 @@
 				0496013519CAF89E00F2D67E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0496013619CAF89E00F2D67E /* Build configuration list for PBXNativeTarget "sensoriosclientTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +490,7 @@
 				0496013819CAF89E00F2D67E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
