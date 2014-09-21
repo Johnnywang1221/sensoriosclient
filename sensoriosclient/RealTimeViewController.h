@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <ImageIO/ImageIO.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreMotion/CoreMotion.h>
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "Sqlite.h"
 #import "PicInfo.h"
@@ -18,13 +19,36 @@
     float longitude;
     float latitude;
     float altitude;
+    
+    float accelerometerX;
+    float accelerometerY;
+    float accelerometerZ;
+    
+    float magnetometerX;
+    float magnetometerY;
+    float magnetometerZ;
+    
+    float xDirect;
+    float yDirect;
+    float zDirect;
+    
 }
 
 @property (strong, atomic) ALAssetsLibrary * library;
-@property(nonatomic,strong)CLLocationManager* locationManager;
+@property (nonatomic,strong)CLLocationManager* locationManager;
+@property (nonatomic, strong)CMMotionManager *motionManager;
 @property (nonatomic)float longitude;
 @property (nonatomic)float latitude;
 @property (nonatomic)float altitude;
+@property (nonatomic)float accelerometerX;
+@property (nonatomic)float accelerometerY;
+@property (nonatomic)float accelerometerZ;
+@property (nonatomic)float magnetometerX;
+@property (nonatomic)float magnetometerY;
+@property (nonatomic)float magnetometerZ;
+@property (nonatomic)float xDirect;
+@property (nonatomic)float yDirect;
+@property (nonatomic)float zDirect;
 
 
 @end

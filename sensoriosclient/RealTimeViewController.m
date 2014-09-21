@@ -14,11 +14,22 @@
 @end
 
 @implementation RealTimeViewController
+
 @synthesize library;
 @synthesize locationManager;
+@synthesize motionManager;
 @synthesize longitude;
 @synthesize latitude;
 @synthesize altitude;
+@synthesize accelerometerX;
+@synthesize accelerometerY;
+@synthesize accelerometerZ;
+@synthesize magnetometerX;
+@synthesize magnetometerY;
+@synthesize magnetometerZ;
+@synthesize xDirect;
+@synthesize yDirect;
+@synthesize zDirect;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +52,21 @@
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:items];
     self.navigationItem.titleView = segmentedControl;
     self.library = [[ALAssetsLibrary alloc] init];
+    
+    if([CLLocationManager locationServicesEnabled]) {
+        if(!locationManager){
+            locationManager = [[CLLocationManager alloc] init];
+            
+            locationManager.delegate = self;
+            [locationManager setDistanceFilter:kCLDistanceFilterNone];
+            [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        }
+    }else {
+        NSLog(@"Unable to locate!");
+        //提示用户无法进行定位操作
+    }
+    
+    motionManager=[[CMMotionManager alloc]init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,20 +89,29 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentModalViewController:picker animated:YES];
         
-        if([CLLocationManager locationServicesEnabled]) {
-            locationManager = [[CLLocationManager alloc] init];
-            
-            locationManager.delegate = self;
-            [locationManager setDistanceFilter:kCLDistanceFilterNone];
-            [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-            
-        }else {
-            NSLog(@"Unable to locate!");
-            //提示用户无法进行定位操作
-        }
         // 开始定位
         [locationManager startUpdatingLocation];
-
+        
+        
+        //this is push style
+        /* [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+         
+         accelerometerX = accelerometerData.acceleration.x;
+         accelerometerY = accelerometerData.acceleration.y;
+         accelerometerY = accelerometerData.acceleration.z;
+         
+         }];*/
+        
+        //this is pull style
+        [motionManager startAccelerometerUpdates];
+        motionManager.accelerometerUpdateInterval = 1/60.0;
+        
+        [motionManager startMagnetometerUpdates];
+        motionManager.magnetometerUpdateInterval = 1/60.0;
+        
+        [motionManager startDeviceMotionUpdates];
+        motionManager.deviceMotionUpdateInterval = 1/60.0;
+        
         
     }else{
         //如果没有提示用户
@@ -103,10 +138,31 @@
         
     }];
     
+    CMAccelerometerData *data1 = motionManager.accelerometerData;
+    accelerometerX = data1.acceleration.x;
+    accelerometerY = data1.acceleration.y;
+    accelerometerZ = data1.acceleration.z;
+    NSLog(@"Accelerometer:\nx==%f\ny==%f\nz==%f", accelerometerX, accelerometerY, accelerometerZ);
+    [motionManager stopAccelerometerUpdates];
+    
+    CMMagnetometerData *data2 = motionManager.magnetometerData;
+    magnetometerX = data2.magneticField.x;
+    magnetometerY = data2.magneticField.y;
+    magnetometerZ = data2.magneticField.z;
+    NSLog(@"Magnetometer:\nx==%f\ny==%f\nz==%f", magnetometerX, magnetometerY, magnetometerZ);
+    [motionManager stopMagnetometerUpdates];
+    
+    CMDeviceMotion *currentDeviceMotion = motionManager.deviceMotion;
+    CMAttitude *currentAttitude = currentDeviceMotion.attitude;
+    float yaw = currentAttitude.yaw*(180/M_PI);
+    float roll = currentAttitude.roll*(180/M_PI);
+    float pitch = currentAttitude.pitch*(180/M_PI);
+    NSLog(@"Device Motion:\nx==%f\ny==%f\nz==%f", pitch, yaw, roll);
+    
     //元数据
     NSDictionary *dict = [info objectForKey:UIImagePickerControllerMediaMetadata];
     NSMutableDictionary *metadata=[NSMutableDictionary dictionaryWithDictionary:dict];
-    NSLog(@"metadata==%@",metadata);
+    //NSLog(@"metadata==%@",metadata);
     
     //EXIF数据
     NSMutableDictionary *EXIFDictionary =[[metadata objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy];
@@ -120,9 +176,18 @@
     thisPicInfo.picID = tempTimeChuo;
     NSLog(@"\npicID==%@", thisPicInfo.picID);
     thisPicInfo.picTopic = @"topic 1";//modify in the future
-    thisPicInfo.xDirect = 0;
-    thisPicInfo.yDirect = 0;
-    thisPicInfo.zDirect = 0;
+    
+    if([self getOrientation]){
+        thisPicInfo.xDirect = -self.xDirect*(180/M_PI);//android 0~360 有大问题！！！
+        thisPicInfo.yDirect = self.yDirect*(180/M_PI)*(-1);//android -180~180
+        //thisPicInfo.zDirect = self.zDirect*(180/M_PI) -360;//android -90~90
+        thisPicInfo.zDirect = roll;
+    }else{
+        thisPicInfo.xDirect = 0;
+        thisPicInfo.yDirect = 0;
+        thisPicInfo.zDirect = 0;
+    }
+    
     NSLog(@"xDirect==%f\nyDirect==%f\nzDirect==%f", thisPicInfo.xDirect, thisPicInfo.yDirect, thisPicInfo.zDirect);
     thisPicInfo.longitude = self.longitude;
     thisPicInfo.latitude = self.latitude;
@@ -176,17 +241,54 @@
     }
 }
 
+- (BOOL)getOrientation
+{
+    accelerometerX = accelerometerX*9.81;
+    accelerometerY = accelerometerY*9.81;
+    accelerometerZ = accelerometerZ*9.81;
+    
+    float Hx = magnetometerY*accelerometerZ - magnetometerZ*accelerometerY;
+    float Hy = magnetometerZ*accelerometerX - magnetometerX*accelerometerZ;
+    float Hz = magnetometerX*accelerometerY - magnetometerY*accelerometerX;
+    float normH = sqrtf(Hx*Hx + Hy*Hy + Hz*Hz);
+    if(normH < 0.1f){
+        // device is close to free fall (or in space?), or close to
+        // magnetic north pole. Typical values are  > 100.
+        return FALSE;
+    }
+    float invH = 1.0f / normH;
+    Hx *= invH;
+    Hy *= invH;
+    Hz *= invH;
+    float invA = 1.0f / sqrtf(accelerometerX*accelerometerX + accelerometerY*accelerometerY + accelerometerZ*accelerometerZ);
+    accelerometerX *= invA;
+    accelerometerY *= invA;
+    accelerometerZ *= invA;
+    float Mx = accelerometerY*Hz - accelerometerZ*Hy;
+    float My = accelerometerZ*Hx - accelerometerX*Hz;;
+    float Mz = accelerometerX*Hy - accelerometerY*Hx;
+    float R0 = Hx, R1 = Hy, R2 = Hz;
+    float R3 = Mx, R4 = My, R5 = Mz;
+    float R6 = accelerometerX, R7 = accelerometerY, R8 = accelerometerZ;
+    
+    xDirect = atan2f(R1, R4);
+    yDirect = asinf(-R7);
+    zDirect = atan2f(-R6, R8);
+    
+    return TRUE;
+}
+
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
