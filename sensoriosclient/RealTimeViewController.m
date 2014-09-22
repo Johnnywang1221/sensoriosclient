@@ -27,6 +27,9 @@
 @synthesize magnetometerX;
 @synthesize magnetometerY;
 @synthesize magnetometerZ;
+@synthesize pitch;
+@synthesize yaw;
+@synthesize roll;
 @synthesize xDirect;
 @synthesize yDirect;
 @synthesize zDirect;
@@ -91,27 +94,13 @@
         
         // 开始定位
         [locationManager startUpdatingLocation];
-        
-        
-        //this is push style
-        /* [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-         
-         accelerometerX = accelerometerData.acceleration.x;
-         accelerometerY = accelerometerData.acceleration.y;
-         accelerometerY = accelerometerData.acceleration.z;
-         
-         }];*/
-        
-        //this is pull style
-        [motionManager startAccelerometerUpdates];
-        motionManager.accelerometerUpdateInterval = 1/60.0;
-        
-        [motionManager startMagnetometerUpdates];
-        motionManager.magnetometerUpdateInterval = 1/60.0;
-        
+    
         [motionManager startDeviceMotionUpdates];
         motionManager.deviceMotionUpdateInterval = 1/60.0;
         
+        [locationManager startUpdatingHeading];
+        
+        NSLog(@"Take Picture");
         
     }else{
         //如果没有提示用户
@@ -124,11 +113,12 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     //得到图片
+    NSLog(@"Get picture!");
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
     //图片存入相册
     //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     
-    [library saveImage:image toAlbum:@"Sensor Client" withCompletionBlock:^(NSError *error) {
+    [library saveImage:image toAlbum:@"Sensor" withCompletionBlock:^(NSError *error) {
         
         if (error!=nil) {
             
@@ -138,26 +128,17 @@
         
     }];
     
-    CMAccelerometerData *data1 = motionManager.accelerometerData;
-    accelerometerX = data1.acceleration.x;
-    accelerometerY = data1.acceleration.y;
-    accelerometerZ = data1.acceleration.z;
-    NSLog(@"Accelerometer:\nx==%f\ny==%f\nz==%f", accelerometerX, accelerometerY, accelerometerZ);
-    [motionManager stopAccelerometerUpdates];
-    
-    CMMagnetometerData *data2 = motionManager.magnetometerData;
-    magnetometerX = data2.magneticField.x;
-    magnetometerY = data2.magneticField.y;
-    magnetometerZ = data2.magneticField.z;
-    NSLog(@"Magnetometer:\nx==%f\ny==%f\nz==%f", magnetometerX, magnetometerY, magnetometerZ);
-    [motionManager stopMagnetometerUpdates];
-    
     CMDeviceMotion *currentDeviceMotion = motionManager.deviceMotion;
     CMAttitude *currentAttitude = currentDeviceMotion.attitude;
-    float yaw = currentAttitude.yaw*(180/M_PI);
-    float roll = currentAttitude.roll*(180/M_PI);
-    float pitch = currentAttitude.pitch*(180/M_PI);
+    yaw = currentAttitude.yaw*(180/M_PI);
+    roll = currentAttitude.roll*(180/M_PI);//顺时针 -180~180
+    pitch = currentAttitude.pitch*(180/M_PI);//水平面以上为正 -90~90
     NSLog(@"Device Motion:\nx==%f\ny==%f\nz==%f", pitch, yaw, roll);
+    [motionManager stopDeviceMotionUpdates];
+    
+    self.xDirect = locationManager.heading.trueHeading;
+    NSLog(@"Heading==%f", self.xDirect);
+    [locationManager stopUpdatingHeading];
     
     //元数据
     NSDictionary *dict = [info objectForKey:UIImagePickerControllerMediaMetadata];
@@ -177,16 +158,9 @@
     NSLog(@"\npicID==%@", thisPicInfo.picID);
     thisPicInfo.picTopic = @"topic 1";//modify in the future
     
-    if([self getOrientation]){
-        thisPicInfo.xDirect = -self.xDirect*(180/M_PI);//android 0~360 有大问题！！！
-        thisPicInfo.yDirect = self.yDirect*(180/M_PI)*(-1);//android -180~180
-        //thisPicInfo.zDirect = self.zDirect*(180/M_PI) -360;//android -90~90
-        thisPicInfo.zDirect = roll;
-    }else{
-        thisPicInfo.xDirect = 0;
-        thisPicInfo.yDirect = 0;
-        thisPicInfo.zDirect = 0;
-    }
+    thisPicInfo.xDirect = self.xDirect;//android 0~360
+    thisPicInfo.yDirect = pitch * (-1);//android -180~180, 顺时针
+    thisPicInfo.zDirect = roll;//android -90~90，顺时针
     
     NSLog(@"xDirect==%f\nyDirect==%f\nzDirect==%f", thisPicInfo.xDirect, thisPicInfo.yDirect, thisPicInfo.zDirect);
     thisPicInfo.longitude = self.longitude;
@@ -240,44 +214,6 @@
         // 提示用户出错原因，可按住Option键点击 KCLErrorDenied的查看更多出错信息，可打印error.code值查找原因所在
     }
 }
-
-- (BOOL)getOrientation
-{
-    accelerometerX = accelerometerX*9.81;
-    accelerometerY = accelerometerY*9.81;
-    accelerometerZ = accelerometerZ*9.81;
-    
-    float Hx = magnetometerY*accelerometerZ - magnetometerZ*accelerometerY;
-    float Hy = magnetometerZ*accelerometerX - magnetometerX*accelerometerZ;
-    float Hz = magnetometerX*accelerometerY - magnetometerY*accelerometerX;
-    float normH = sqrtf(Hx*Hx + Hy*Hy + Hz*Hz);
-    if(normH < 0.1f){
-        // device is close to free fall (or in space?), or close to
-        // magnetic north pole. Typical values are  > 100.
-        return FALSE;
-    }
-    float invH = 1.0f / normH;
-    Hx *= invH;
-    Hy *= invH;
-    Hz *= invH;
-    float invA = 1.0f / sqrtf(accelerometerX*accelerometerX + accelerometerY*accelerometerY + accelerometerZ*accelerometerZ);
-    accelerometerX *= invA;
-    accelerometerY *= invA;
-    accelerometerZ *= invA;
-    float Mx = accelerometerY*Hz - accelerometerZ*Hy;
-    float My = accelerometerZ*Hx - accelerometerX*Hz;;
-    float Mz = accelerometerX*Hy - accelerometerY*Hx;
-    float R0 = Hx, R1 = Hy, R2 = Hz;
-    float R3 = Mx, R4 = My, R5 = Mz;
-    float R6 = accelerometerX, R7 = accelerometerY, R8 = accelerometerZ;
-    
-    xDirect = atan2f(R1, R4);
-    yDirect = asinf(-R7);
-    zDirect = atan2f(-R6, R8);
-    
-    return TRUE;
-}
-
 
 
 /*

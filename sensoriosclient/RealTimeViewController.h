@@ -28,6 +28,10 @@
     float magnetometerY;
     float magnetometerZ;
     
+    float pitch;
+    float yaw;
+    float roll;
+    
     float xDirect;
     float yDirect;
     float zDirect;
@@ -46,6 +50,9 @@
 @property (nonatomic)float magnetometerX;
 @property (nonatomic)float magnetometerY;
 @property (nonatomic)float magnetometerZ;
+@property (nonatomic)float pitch;
+@property (nonatomic)float yaw;
+@property (nonatomic)float roll;
 @property (nonatomic)float xDirect;
 @property (nonatomic)float yDirect;
 @property (nonatomic)float zDirect;
