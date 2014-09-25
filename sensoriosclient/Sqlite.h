@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "PicInfo.h"
+#import "CollectionData.h"
 
 #define dbName @"sensor.sqlite"
 
@@ -17,9 +18,12 @@
 }
 
 @property (nonatomic) sqlite3 *db;
--(BOOL) create:(sqlite3 *)sqlitedb;
--(BOOL) insertList:(PicInfo *)insertList;
--(BOOL) deleteList:(PicInfo *)deleteList;
+//-(BOOL) createPicTable:(sqlite3 *)sqlitedb;
+-(BOOL) insertPicList:(PicInfo *)insertList;
+-(BOOL) deletePicList:(PicInfo *)deleteList;
+
+-(BOOL) insertDataList:(CollectionData *)insertList;
+-(BOOL) deleteDataList:(CollectionData *)deleteList;
 //-(NSMutableArray*) getList;
 
 @end

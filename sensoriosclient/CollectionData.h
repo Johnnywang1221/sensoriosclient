@@ -9,16 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface CollectionData : NSObject
+
 @property(nonatomic) long dataId;
-@property(nonatomic) double lightIntensity;
-@property(nonatomic) double soundIntensity;
-@property(nonatomic,strong) NSDate *createdTime;
+@property(nonatomic) float lightIntensity;
+@property(nonatomic) float soundIntensity;
+@property(nonatomic) int createdTime;//seconds after 1970
 @property(nonatomic) int chargeState;
 @property(nonatomic) int batteryState;
 @property(nonatomic) int netState;
-@property(nonatomic) double longitude;
-@property(nonatomic) double latitude;
-@property(nonatomic) double altitude;
+@property(nonatomic) float longitude;
+@property(nonatomic) float latitude;
+@property(nonatomic) float altitude;
 
 
 @end

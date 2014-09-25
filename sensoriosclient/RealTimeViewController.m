@@ -21,12 +21,6 @@
 @synthesize longitude;
 @synthesize latitude;
 @synthesize altitude;
-@synthesize accelerometerX;
-@synthesize accelerometerY;
-@synthesize accelerometerZ;
-@synthesize magnetometerX;
-@synthesize magnetometerY;
-@synthesize magnetometerZ;
 @synthesize pitch;
 @synthesize yaw;
 @synthesize roll;
@@ -98,6 +92,10 @@
         [motionManager startDeviceMotionUpdates];
         motionManager.deviceMotionUpdateInterval = 1/60.0;
         
+//        [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+//            NSLog(@"Yaw values is: %f", motion.attitude.yaw);
+//        }];
+       
         [locationManager startUpdatingHeading];
         
         NSLog(@"Take Picture");
@@ -137,7 +135,7 @@
     [motionManager stopDeviceMotionUpdates];
     
     self.xDirect = locationManager.heading.trueHeading;
-    NSLog(@"Heading==%f", self.xDirect);
+    //NSLog(@"Heading==%f", self.xDirect);
     [locationManager stopUpdatingHeading];
     
     //元数据
@@ -179,7 +177,19 @@
     NSLog(@"\nwidth==%d\nheight==%d", thisPicInfo.width, thisPicInfo.height);
     
     Sqlite *sqlite = [[Sqlite alloc]init];
-    [sqlite insertList:thisPicInfo];
+    [sqlite insertPicList:thisPicInfo];
+    
+    Collect *collection = [[Collect alloc]init];
+    CollectionData *collectData = [[CollectionData alloc]init];
+    collectData = [collection startCollect];
+    
+    collectData.longitude = self.longitude;
+    collectData.latitude = self.latitude;
+    collectData.altitude = self.altitude;
+    
+    NSLog(@"COLLECT::::longitude==%f\nlatitude==%f\naltitude==%f", collectData.longitude, collectData.latitude, collectData.altitude);
+    
+    [sqlite insertDataList:collectData];
     
     [self dismissModalViewControllerAnimated:YES];
     

@@ -48,7 +48,8 @@
             return NO;
         }
         
-        [self create:self.db];
+        [self createPicTable:self.db];
+        [self createDataTable:self.db];
         return YES;
     }
     
@@ -57,7 +58,8 @@
         
         //创建一个新表
        // NSLog(@"create database failed!");
-        [self create:self.db];
+        [self createPicTable:self.db];
+        [self createDataTable:self.db];
         return YES;
     } else {
         //如果创建并打开数据库失败则关闭数据库
@@ -70,8 +72,8 @@
     return NO;
 }
 
-//create table
--(BOOL)create:(sqlite3 *)sqlitedb
+//create Pictable
+-(BOOL)createPicTable:(sqlite3 *)sqlitedb
 {
     
     char *sql = "create table if not exists PicInfo(ID INTEGER PRIMARY KEY AUTOINCREMENT, picID text, picTopic text, xDirect float, yDirect float, zDirect float, longitude float, latitude float, altitude float, exposure integer, focal float, aperture float, width int, height int)";//
@@ -96,8 +98,7 @@
     return YES;
 }
 
-
--(BOOL)insertList:(PicInfo *)insertList
+-(BOOL)insertPicList:(PicInfo *)insertList
 {
     //先判断数据库是否打开
     if ([self openDB]) {
@@ -150,7 +151,7 @@
     return NO;
 }
 
-- (BOOL) deleteList:(PicInfo *)deletList
+- (BOOL) deletePicList:(PicInfo *)deletList
 {
     if ([self openDB]) {
         
@@ -185,6 +186,86 @@
     }
     return NO;
     
+}
+
+//create Datatable
+-(BOOL)createDataTable:(sqlite3 *)sqlitedb
+{
+    
+    char *sql = "create table if not exists DataInfo(ID INTEGER PRIMARY KEY AUTOINCREMENT, dataID long, light float, sound float, creatTime integer, charge integer, battery integer, netState integer, longitude float, latitude float, altitude float)";//
+    sqlite3_stmt *statement;
+    NSInteger sqlReturn = sqlite3_prepare_v2(db, sql, -1, &statement, nil);
+    
+    if(sqlReturn != SQLITE_OK)
+    {
+        NSLog(@"Error: failed to prepare statement:create test table.");
+        return NO;
+    }
+    
+    int success = sqlite3_step(statement);
+    sqlite3_finalize(statement);//释放sqlite3_stmt
+    
+    if ( success != SQLITE_DONE) {
+        NSLog(@"Error: failed to dehydrate:create table test");
+        return NO;
+    }
+    NSLog(@"Create table 'DataInfo' successed.");
+    
+    return YES;
+}
+
+-(BOOL)insertDataList:(CollectionData *)insertList
+{
+    //先判断数据库是否打开
+    if ([self openDB]) {
+        
+        sqlite3_stmt *statement;
+        
+        //这个 sql 语句特别之处在于 values 里面有个? 号。在sqlite3_prepare函数里，?号表示一个未定的值，它的值等下才插入。
+        static char *sql = "INSERT INTO DataInfo(dataID, light, sound, creatTime, charge, battery, netState, longitude, latitude, altitude) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        int success2 = sqlite3_prepare_v2(db, sql, -1, &statement, NULL);
+        if (success2 != SQLITE_OK) {
+            NSLog(@"Error: failed to insert:PicInfo");
+            sqlite3_close(db);
+            return NO;
+        }
+        
+        //这里的数字1，2，3代表上面的第几个问号，这里将三个值绑定到三个绑定变量
+        sqlite3_bind_int(statement, 1, insertList.dataId);
+        sqlite3_bind_double(statement, 2, insertList.lightIntensity);
+        sqlite3_bind_double(statement, 3, insertList.soundIntensity);
+        sqlite3_bind_int(statement, 4, insertList.createdTime);
+        sqlite3_bind_int(statement, 5, insertList.chargeState);
+        sqlite3_bind_int(statement, 6, insertList.batteryState);
+        sqlite3_bind_int(statement, 7, insertList.netState);
+        sqlite3_bind_double(statement, 8, insertList.longitude);
+        sqlite3_bind_double(statement, 9, insertList.latitude);
+        sqlite3_bind_double(statement, 10, insertList.altitude);
+        
+        //执行插入语句
+        success2 = sqlite3_step(statement);
+        //释放statement
+        sqlite3_finalize(statement);
+        
+        //如果插入失败
+        if (success2 == SQLITE_ERROR) {
+            NSLog(@"Error: failed to insert into the database with message.");
+            //关闭数据库
+            sqlite3_close(db);
+            return NO;
+        }
+        NSLog(@"Insert successfully!");
+        //关闭数据库
+        sqlite3_close(db);
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL) deleteDataList:(CollectionData *)deleteList
+{
+    return FALSE;
 }
 
 

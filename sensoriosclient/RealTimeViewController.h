@@ -13,20 +13,13 @@
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "Sqlite.h"
 #import "PicInfo.h"
+#import "Collect.h"
 
 @interface RealTimeViewController : UIViewController<CLLocationManagerDelegate>
 {
     float longitude;
     float latitude;
     float altitude;
-    
-    float accelerometerX;
-    float accelerometerY;
-    float accelerometerZ;
-    
-    float magnetometerX;
-    float magnetometerY;
-    float magnetometerZ;
     
     float pitch;
     float yaw;
@@ -44,12 +37,6 @@
 @property (nonatomic)float longitude;
 @property (nonatomic)float latitude;
 @property (nonatomic)float altitude;
-@property (nonatomic)float accelerometerX;
-@property (nonatomic)float accelerometerY;
-@property (nonatomic)float accelerometerZ;
-@property (nonatomic)float magnetometerX;
-@property (nonatomic)float magnetometerY;
-@property (nonatomic)float magnetometerZ;
 @property (nonatomic)float pitch;
 @property (nonatomic)float yaw;
 @property (nonatomic)float roll;
