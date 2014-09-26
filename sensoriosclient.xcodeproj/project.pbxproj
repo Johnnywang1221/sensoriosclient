@@ -23,6 +23,12 @@
 		0496013C19CBC38700F2D67E /* CollectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496013B19CBC38700F2D67E /* CollectionData.m */; };
 		0496014019CBC3C300F2D67E /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496013F19CBC3C300F2D67E /* Upload.m */; };
 		0496014319CBC3E700F2D67E /* RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496014219CBC3E700F2D67E /* RandomString.m */; };
+		CEA0E86919D2FBA00036FF61 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA0E86819D2FBA00036FF61 /* SystemConfiguration.framework */; };
+		CEA0E86B19D2FC180036FF61 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA0E86A19D2FC180036FF61 /* CFNetwork.framework */; };
+		CEA0E8B219D3B2DB0036FF61 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8B119D3B2DB0036FF61 /* Reachability.m */; };
+		CEA0E8B319D3B2DB0036FF61 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8B119D3B2DB0036FF61 /* Reachability.m */; };
+		CEA0E8BC19D3F6180036FF61 /* IOPowerSources.h in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8AE19D2FFB40036FF61 /* IOPowerSources.h */; };
+		CEA0E8BD19D3F6200036FF61 /* IOPSKeys.h in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8AF19D2FFE20036FF61 /* IOPSKeys.h */; };
 		CEF7A89319CBB9DB00A57CCF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */; };
 		CEF7A89519CBB9E300A57CCF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */; };
 		CEF7A89E19CBC0EA00A57CCF /* PicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A89D19CBC0EA00A57CCF /* PicInfo.m */; };
@@ -31,6 +37,7 @@
 		CEF7A8A919CBC18100A57CCF /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A8A619CBC18100A57CCF /* MainPageViewController.m */; };
 		CEF7A8AA19CBC18100A57CCF /* RealTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A8A819CBC18100A57CCF /* RealTimeViewController.m */; };
 		CEF7A8AD19CBC19500A57CCF /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A8AC19CBC19500A57CCF /* SettingViewController.m */; };
+		CEF7A90119D2713800A57CCF /* Collect.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A90019D2713800A57CCF /* Collect.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +75,12 @@
 		0496013F19CBC3C300F2D67E /* Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Upload.m; sourceTree = "<group>"; };
 		0496014119CBC3E700F2D67E /* RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomString.h; sourceTree = "<group>"; };
 		0496014219CBC3E700F2D67E /* RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomString.m; sourceTree = "<group>"; };
+		CEA0E86819D2FBA00036FF61 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEA0E86A19D2FC180036FF61 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CEA0E8AE19D2FFB40036FF61 /* IOPowerSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOPowerSources.h; path = ../IOPowerSources.h; sourceTree = "<group>"; };
+		CEA0E8AF19D2FFE20036FF61 /* IOPSKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IOPSKeys.h; path = ../IOPSKeys.h; sourceTree = "<group>"; };
+		CEA0E8B019D3B2C70036FF61 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		CEA0E8B119D3B2DB0036FF61 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CEF7A89C19CBC0EA00A57CCF /* PicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicInfo.h; sourceTree = "<group>"; };
@@ -82,6 +95,8 @@
 		CEF7A8A819CBC18100A57CCF /* RealTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeViewController.m; sourceTree = "<group>"; };
 		CEF7A8AB19CBC19500A57CCF /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		CEF7A8AC19CBC19500A57CCF /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		CEF7A8FF19D2713800A57CCF /* Collect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collect.h; sourceTree = "<group>"; };
+		CEF7A90019D2713800A57CCF /* Collect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collect.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA0E86B19D2FC180036FF61 /* CFNetwork.framework in Frameworks */,
+				CEA0E86919D2FBA00036FF61 /* SystemConfiguration.framework in Frameworks */,
 				CEF7A89519CBB9E300A57CCF /* CoreLocation.framework in Frameworks */,
 				CEF7A89319CBB9DB00A57CCF /* libsqlite3.dylib in Frameworks */,
 				0496010D19CAF89E00F2D67E /* CoreGraphics.framework in Frameworks */,
@@ -132,6 +149,8 @@
 		0496010919CAF89E00F2D67E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEA0E86A19D2FC180036FF61 /* CFNetwork.framework */,
+				CEA0E86819D2FBA00036FF61 /* SystemConfiguration.framework */,
 				CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */,
 				CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */,
 				0496010A19CAF89E00F2D67E /* Foundation.framework */,
@@ -157,8 +176,14 @@
 				CEF7A8AC19CBC19500A57CCF /* SettingViewController.m */,
 				CEF7A89F19CBC11C00A57CCF /* Sqlite.h */,
 				CEF7A8A019CBC11C00A57CCF /* Sqlite.m */,
+				CEF7A8FF19D2713800A57CCF /* Collect.h */,
+				CEF7A90019D2713800A57CCF /* Collect.m */,
 				CEF7A8A219CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.h */,
 				CEF7A8A319CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m */,
+				CEA0E8B019D3B2C70036FF61 /* Reachability.h */,
+				CEA0E8B119D3B2DB0036FF61 /* Reachability.m */,
+				CEA0E8AE19D2FFB40036FF61 /* IOPowerSources.h */,
+				CEA0E8AF19D2FFE20036FF61 /* IOPSKeys.h */,
 				0496011C19CAF89E00F2D67E /* Images.xcassets */,
 				0496011119CAF89E00F2D67E /* Supporting Files */,
 			);
@@ -313,6 +338,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA0E8BD19D3F6200036FF61 /* IOPSKeys.h in Sources */,
+				CEA0E8BC19D3F6180036FF61 /* IOPowerSources.h in Sources */,
+				CEA0E8B219D3B2DB0036FF61 /* Reachability.m in Sources */,
 				0496011B19CAF89E00F2D67E /* AppDelegate.m in Sources */,
 				0496011719CAF89E00F2D67E /* main.m in Sources */,
 				CEF7A8AA19CBC18100A57CCF /* RealTimeViewController.m in Sources */,
@@ -324,6 +352,7 @@
 				0437FEA519D5647A008CE0E4 /* Brightness.m in Sources */,
 				0496014319CBC3E700F2D67E /* RandomString.m in Sources */,
 				0496014019CBC3C300F2D67E /* Upload.m in Sources */,
+				CEF7A90119D2713800A57CCF /* Collect.m in Sources */,
 				CEF7A8AD19CBC19500A57CCF /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA0E8B319D3B2DB0036FF61 /* Reachability.m in Sources */,
 				0496013019CAF89E00F2D67E /* sensoriosclientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +461,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -441,6 +472,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sensoriosclient/sensoriosclient-Prefix.pch";
 				INFOPLIST_FILE = "sensoriosclient/sensoriosclient-Info.plist";
@@ -454,6 +490,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sensoriosclient/sensoriosclient-Prefix.pch";
 				INFOPLIST_FILE = "sensoriosclient/sensoriosclient-Info.plist";
@@ -470,6 +511,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sensoriosclient/sensoriosclient-Prefix.pch";
@@ -492,6 +534,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sensoriosclient/sensoriosclient-Prefix.pch";

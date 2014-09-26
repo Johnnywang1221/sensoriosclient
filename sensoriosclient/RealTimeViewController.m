@@ -14,11 +14,19 @@
 @end
 
 @implementation RealTimeViewController
+
 @synthesize library;
 @synthesize locationManager;
+@synthesize motionManager;
 @synthesize longitude;
 @synthesize latitude;
 @synthesize altitude;
+@synthesize pitch;
+@synthesize yaw;
+@synthesize roll;
+@synthesize xDirect;
+@synthesize yDirect;
+@synthesize zDirect;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +49,21 @@
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:items];
     self.navigationItem.titleView = segmentedControl;
     self.library = [[ALAssetsLibrary alloc] init];
+    
+    if([CLLocationManager locationServicesEnabled]) {
+        if(!locationManager){
+            locationManager = [[CLLocationManager alloc] init];
+            
+            locationManager.delegate = self;
+            [locationManager setDistanceFilter:kCLDistanceFilterNone];
+            [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+        }
+    }else {
+        NSLog(@"Unable to locate!");
+        //提示用户无法进行定位操作
+    }
+    
+    motionManager=[[CMMotionManager alloc]init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,20 +86,19 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         [self presentModalViewController:picker animated:YES];
         
-        if([CLLocationManager locationServicesEnabled]) {
-            locationManager = [[CLLocationManager alloc] init];
-            
-            locationManager.delegate = self;
-            [locationManager setDistanceFilter:kCLDistanceFilterNone];
-            [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-            
-        }else {
-            NSLog(@"Unable to locate!");
-            //提示用户无法进行定位操作
-        }
         // 开始定位
         [locationManager startUpdatingLocation];
-
+    
+        [motionManager startDeviceMotionUpdates];
+        motionManager.deviceMotionUpdateInterval = 1/60.0;
+        
+//        [motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+//            NSLog(@"Yaw values is: %f", motion.attitude.yaw);
+//        }];
+       
+        [locationManager startUpdatingHeading];
+        
+        NSLog(@"Take Picture");
         
     }else{
         //如果没有提示用户
@@ -89,11 +111,12 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     //得到图片
+    NSLog(@"Get picture!");
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
     //图片存入相册
     //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     
-    [library saveImage:image toAlbum:@"Sensor Client" withCompletionBlock:^(NSError *error) {
+    [library saveImage:image toAlbum:@"Sensor" withCompletionBlock:^(NSError *error) {
         
         if (error!=nil) {
             
@@ -103,10 +126,22 @@
         
     }];
     
+    CMDeviceMotion *currentDeviceMotion = motionManager.deviceMotion;
+    CMAttitude *currentAttitude = currentDeviceMotion.attitude;
+    yaw = currentAttitude.yaw*(180/M_PI);
+    roll = currentAttitude.roll*(180/M_PI);//顺时针 -180~180
+    pitch = currentAttitude.pitch*(180/M_PI);//水平面以上为正 -90~90
+    NSLog(@"Device Motion:\nx==%f\ny==%f\nz==%f", pitch, yaw, roll);
+    [motionManager stopDeviceMotionUpdates];
+    
+    self.xDirect = locationManager.heading.trueHeading;
+    //NSLog(@"Heading==%f", self.xDirect);
+    [locationManager stopUpdatingHeading];
+    
     //元数据
     NSDictionary *dict = [info objectForKey:UIImagePickerControllerMediaMetadata];
     NSMutableDictionary *metadata=[NSMutableDictionary dictionaryWithDictionary:dict];
-    NSLog(@"metadata==%@",metadata);
+    //NSLog(@"metadata==%@",metadata);
     
     //EXIF数据
     NSMutableDictionary *EXIFDictionary =[[metadata objectForKey:(NSString *)kCGImagePropertyExifDictionary]mutableCopy];
@@ -120,9 +155,11 @@
     thisPicInfo.picID = tempTimeChuo;
     NSLog(@"\npicID==%@", thisPicInfo.picID);
     thisPicInfo.picTopic = @"topic 1";//modify in the future
-    thisPicInfo.xDirect = 0;
-    thisPicInfo.yDirect = 0;
-    thisPicInfo.zDirect = 0;
+    
+    thisPicInfo.xDirect = self.xDirect;//android 0~360
+    thisPicInfo.yDirect = pitch * (-1);//android -180~180, 顺时针
+    thisPicInfo.zDirect = roll;//android -90~90，顺时针
+    
     NSLog(@"xDirect==%f\nyDirect==%f\nzDirect==%f", thisPicInfo.xDirect, thisPicInfo.yDirect, thisPicInfo.zDirect);
     thisPicInfo.longitude = self.longitude;
     thisPicInfo.latitude = self.latitude;
@@ -140,7 +177,19 @@
     NSLog(@"\nwidth==%d\nheight==%d", thisPicInfo.width, thisPicInfo.height);
     
     Sqlite *sqlite = [[Sqlite alloc]init];
-    [sqlite insertList:thisPicInfo];
+    [sqlite insertPicList:thisPicInfo];
+    
+    Collect *collection = [[Collect alloc]init];
+    CollectionData *collectData = [[CollectionData alloc]init];
+    collectData = [collection startCollect];
+    
+    collectData.longitude = self.longitude;
+    collectData.latitude = self.latitude;
+    collectData.altitude = self.altitude;
+    
+    NSLog(@"COLLECT::::longitude==%f\nlatitude==%f\naltitude==%f", collectData.longitude, collectData.latitude, collectData.altitude);
+    
+    [sqlite insertDataList:collectData];
     
     [self dismissModalViewControllerAnimated:YES];
     
@@ -177,16 +226,15 @@
 }
 
 
-
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
