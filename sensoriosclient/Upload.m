@@ -83,7 +83,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite{
     prosess.title = @"正在上传";
-    NSString *ratio = [NSString stringWithFormat:@"已传%d/%d",totalBytesWritten,totalBytesExpectedToWrite];
+    NSString *ratio = [NSString stringWithFormat:@"已传%ld/%ld",(long)totalBytesWritten,(long)totalBytesExpectedToWrite];
     prosess.message = ratio;
     
     
