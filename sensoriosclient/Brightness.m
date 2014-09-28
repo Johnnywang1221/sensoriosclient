@@ -12,7 +12,7 @@
 
 +(CGFloat)getBrightnessFromScreen{
     UIScreen *mainScreen = [UIScreen mainScreen];
-    CGFloat brightnessOfTheScreen = mainScreen.brightness;
+    CGFloat brightnessOfTheScreen = mainScreen.brightness * 120000.0f;
     return brightnessOfTheScreen;
 }
 
