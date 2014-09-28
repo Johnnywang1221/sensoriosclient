@@ -11,7 +11,7 @@
 
 @interface PicInfo : NSObject
 {
-    NSString *picID;
+    int picID;
     NSString *picTopic;
     float xDirect;
     float yDirect;
@@ -27,7 +27,7 @@
     
 }
 
-@property (nonatomic, retain) NSString *picID;
+@property (nonatomic) int picID;
 @property (nonatomic, retain) NSString *picTopic;
 @property (nonatomic) float xDirect;
 @property (nonatomic) float yDirect;

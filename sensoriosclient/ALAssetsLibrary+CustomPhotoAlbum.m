@@ -36,6 +36,30 @@
     
 }
 
+-(void)saveWriteImage:(UIImage*)image toAlbum:(NSString*)albumName withMetadata:(NSDictionary *)metadata withCompletionBlock:(SaveImageCompletion)completionBlock
+{
+    [self writeImageToSavedPhotosAlbum:[image CGImage]
+                              metadata:metadata
+                       completionBlock:^(NSURL* assetURL, NSError* error) {
+                           
+                           if (error!=nil) {
+                               
+                               completionBlock(error);
+                               
+                               return;
+                               
+                           }
+                           
+                           [self addAssetURL: assetURL
+                            
+                                     toAlbum:albumName
+                            
+                         withCompletionBlock:completionBlock];
+                           
+                       }];
+    
+}
+
 -(void)addAssetURL:(NSURL*)assetURL toAlbum:(NSString*)albumName withCompletionBlock:(SaveImageCompletion)completionBlock{
     
     __block BOOL albumWasFound = NO;

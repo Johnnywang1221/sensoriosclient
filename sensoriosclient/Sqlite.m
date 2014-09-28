@@ -32,12 +32,12 @@
 -(BOOL)openDB
 {
     NSString *path = [self dataFilePath];
-    NSLog(@"path: %@", path);
+    //NSLog(@"path: %@", path);
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL find = [fileManager fileExistsAtPath:path];
     if(find)
     {
-        NSLog(@"Database existed!");
+        //NSLog(@"Database existed!");
         //打开数据库，这里的[path UTF8String]是将NSString转换为C字符串
         //因为SQLite3是采用可移植的C(而不是Objective-C)编写的，它不知道什么是NSString.
         if(sqlite3_open([path UTF8String], &db) != SQLITE_OK)
@@ -76,7 +76,7 @@
 -(BOOL)createPicTable:(sqlite3 *)sqlitedb
 {
     
-    char *sql = "create table if not exists PicInfo(ID INTEGER PRIMARY KEY AUTOINCREMENT, picID text, picTopic text, xDirect float, yDirect float, zDirect float, longitude float, latitude float, altitude float, exposure integer, focal float, aperture float, width int, height int)";//
+    char *sql = "create table if not exists PicInfo(ID INTEGER PRIMARY KEY AUTOINCREMENT, picID integer, picTopic text, xDirect float, yDirect float, zDirect float, longitude float, latitude float, altitude float, exposure integer, focal float, aperture float, width int, height int)";//
     sqlite3_stmt *statement;
     NSInteger sqlReturn = sqlite3_prepare_v2(db, sql, -1, &statement, nil);
     
@@ -93,7 +93,7 @@
         NSLog(@"Error: failed to dehydrate:create table test");
         return NO;
     }
-    NSLog(@"Create table 'PicInfo' successed.");
+    //NSLog(@"Create table 'PicInfo' successed.");
    
     return YES;
 }
@@ -116,7 +116,7 @@
         }
         
         //这里的数字1，2，3代表上面的第几个问号，这里将三个值绑定到三个绑定变量
-        sqlite3_bind_text(statement, 1, [insertList.picID UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_int(statement, 1, insertList.picID);
         sqlite3_bind_text(statement, 2, [insertList.picTopic UTF8String], -1, SQLITE_TRANSIENT);
         sqlite3_bind_double(statement, 3, insertList.xDirect);
         sqlite3_bind_double(statement, 4, insertList.yDirect);
@@ -143,7 +143,7 @@
             sqlite3_close(db);
             return NO;
         }
-        NSLog(@"Insert successfully!");
+        NSLog(@"Insert PicInfo successfully!");
         //关闭数据库
         sqlite3_close(db);
         return YES;
@@ -166,7 +166,7 @@
             return NO;
         }
         
-        sqlite3_bind_text(statement, 1, [deletList.picID UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_int(statement, 1, deletList.picID);
         
         //执行SQL语句。这里是更新数据库
         success = sqlite3_step(statement);
@@ -209,7 +209,7 @@
         NSLog(@"Error: failed to dehydrate:create table test");
         return NO;
     }
-    NSLog(@"Create table 'DataInfo' successed.");
+    //NSLog(@"Create table 'DataInfo' successed.");
     
     return YES;
 }
@@ -255,7 +255,7 @@
             sqlite3_close(db);
             return NO;
         }
-        NSLog(@"Insert successfully!");
+        NSLog(@"Insert DataInfo successfully!");
         //关闭数据库
         sqlite3_close(db);
         return YES;

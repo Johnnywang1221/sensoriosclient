@@ -62,7 +62,6 @@
         NSLog(@"Unable to locate!");
         //提示用户无法进行定位操作
     }
-    
     motionManager=[[CMMotionManager alloc]init];
 }
 
@@ -115,23 +114,21 @@
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
     //图片存入相册
     //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    
-    [library saveImage:image toAlbum:@"Sensor" withCompletionBlock:^(NSError *error) {
-        
-        if (error!=nil) {
-            
-            NSLog(@"Big error: %@", [error description]);
-            
-        }
-        
-    }];
+//    [library saveImage:image toAlbum:@"Sensor" withCompletionBlock:^(NSError *error) {
+//        
+//        if (error!=nil) {
+//            
+//            NSLog(@"Big error: %@", [error description]);
+//            
+//        }
+//    }];
     
     CMDeviceMotion *currentDeviceMotion = motionManager.deviceMotion;
     CMAttitude *currentAttitude = currentDeviceMotion.attitude;
     yaw = currentAttitude.yaw*(180/M_PI);
     roll = currentAttitude.roll*(180/M_PI);//顺时针 -180~180
     pitch = currentAttitude.pitch*(180/M_PI);//水平面以上为正 -90~90
-    NSLog(@"Device Motion:\nx==%f\ny==%f\nz==%f", pitch, yaw, roll);
+    //NSLog(@"Device Motion:\nx==%f\ny==%f\nz==%f", pitch, yaw, roll);
     [motionManager stopDeviceMotionUpdates];
     
     self.xDirect = locationManager.heading.trueHeading;
@@ -149,11 +146,16 @@
     //NSLog(@"EXIFDictionary==%@",EXIFDictionary);
     //NSLog(@"DateTimeDigitized==%@",[EXIFDictionary objectForKey:@"DateTimeDigitized"]);
     
-    NSString *tempTimeChuo = [EXIFDictionary objectForKey:@"DateTimeDigitized"];
+    NSString *tempTime = [EXIFDictionary objectForKey:@"DateTimeDigitized"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    NSTimeZone *zone = [NSTimeZone localTimeZone];
+    [formatter setTimeZone:zone];
+    [formatter setDateFormat:@"yyyy:MM:dd HH:mm:ss"];
+    NSDate *time = [formatter dateFromString:tempTime];
     
     PicInfo *thisPicInfo = [[PicInfo alloc]init];
-    thisPicInfo.picID = tempTimeChuo;
-    NSLog(@"\npicID==%@", thisPicInfo.picID);
+    thisPicInfo.picID = [time timeIntervalSince1970];
+    NSLog(@"\npicID==%d", thisPicInfo.picID);
     thisPicInfo.picTopic = @"topic 1";//modify in the future
     
     thisPicInfo.xDirect = self.xDirect;//android 0~360
@@ -183,15 +185,44 @@
     CollectionData *collectData = [[CollectionData alloc]init];
     collectData = [collection startCollect];
     
+    collectData.createdTime = thisPicInfo.picID;
     collectData.longitude = self.longitude;
     collectData.latitude = self.latitude;
     collectData.altitude = self.altitude;
-    
-    NSLog(@"COLLECT::::longitude==%f\nlatitude==%f\naltitude==%f", collectData.longitude, collectData.latitude, collectData.altitude);
+    NSLog(@"COLLECT\nlongitude==%f\nlatitude==%f\naltitude==%f", collectData.longitude, collectData.latitude, collectData.altitude);
     
     [sqlite insertDataList:collectData];
     
+    //Write new tiff infomation to metadata
+    NSString *json = [self getInfo:thisPicInfo];
+    NSMutableDictionary *TIFFDictionary =[metadata objectForKey:(NSString *)kCGImagePropertyTIFFDictionary];
+    [TIFFDictionary setValue:json forKey:(NSString*)kCGImagePropertyTIFFMake];
+    [metadata setValue:TIFFDictionary forKey:(NSString*)kCGImagePropertyTIFFDictionary];
+//    if (metadata && json) {
+//        [metadata setValue:json forKey:(NSString*)kCGImagePropertyTIFFMake];
+//    }
+    NSLog(@"metadata==%@",metadata);
+    
+    [library saveWriteImage:image toAlbum:@"Sensor" withMetadata:metadata withCompletionBlock:^(NSError *error){
+        if (error) {
+            NSLog( @"Error writing image with metadata to Photo Library: %@", error );
+        } else {
+            NSLog( @"Wrote image with metadata to Photo Library");
+        }
+    }];
+
+    
     [self dismissModalViewControllerAnimated:YES];
+    
+}
+
+-(NSString *)getInfo:(PicInfo *)pic
+{
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    NSString *info = [NSString stringWithFormat:@"{\"username\":\"%@\",\"Model\":\"%@\",\"Longitude\":%f,\"Latitude\":%f,\"Altitude\":%f,\"Orientation_X\":%f,\"Orientation_Y\":%f,\"Orientation_Z\":%f}", @"user", [defaults objectForKey:@"MODEL"], pic.longitude, pic.latitude, pic.altitude, pic.xDirect, pic.yDirect, pic.zDirect];
+    //NSLog(@"%@",info);
+    
+    return info;
     
 }
 

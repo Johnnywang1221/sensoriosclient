@@ -26,18 +26,18 @@
 {
     CollectionData *dataList = [[CollectionData alloc]init];
     
-    //dataList.dataId = 0;
-    dataList.lightIntensity = 0;
-    dataList.soundIntensity = 0;//modify in future
-    dataList.createdTime = [[NSDate date] timeIntervalSince1970];
-    NSLog(@"Time==%d", dataList.createdTime);
+    dataList.dataId = 0;
+    dataList.lightIntensity = 0;//modify in future
+    
+    Record *record = [[Record alloc]init];
+    dataList.soundIntensity = [record getDecibels];
+    //dataList.createdTime = [[NSDate date] timeIntervalSince1970];
+    NSLog(@"COLLECT\nlight==%f\nsound==%f", dataList.lightIntensity, dataList.soundIntensity);
     dataList.chargeState = [self getBatteryState];
-    //dataList.batteryState = [self getBattery];
     dataList.batteryState = self.batteryState;
-   // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNetWork:) name:kReachabilityChangedNotification object:nil];
     [self checkNetwork];
     dataList.netState = self.netState;
-    NSLog(@"COLLECT::::charge==%d\nbattery==%d\nnetwork==%d", dataList.chargeState, dataList.batteryState, dataList.netState);
+    NSLog(@"COLLECT\ncharge==%d\nbattery==%d\nnetwork==%d", dataList.chargeState, dataList.batteryState, dataList.netState);
     
     return dataList;
 }
@@ -201,17 +201,5 @@
     }
     
 }
-
-//- (NSString*) doDevicePlatform
-//{
-//    size_t size;
-//    int nR = sysctlbyname("hw.machine", NULL, &size, NULL, 0);
-//    char *machine = (char *)malloc(size);
-//    nR = sysctlbyname("hw.machine", machine, &size, NULL, 0);
-//    NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
-//    free(machine);
-//    return platform;
-//}
-
 
 @end
