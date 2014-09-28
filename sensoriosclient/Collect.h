@@ -16,6 +16,7 @@
 #import "CollectionData.h"
 #import "Reachability.h"
 #import "Record.h"
+#import "Brightness.h"
 
 @interface Collect : NSObject
 

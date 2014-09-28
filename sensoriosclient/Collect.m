@@ -27,7 +27,7 @@
     CollectionData *dataList = [[CollectionData alloc]init];
     
     dataList.dataId = 0;
-    dataList.lightIntensity = 0;//modify in future
+    dataList.lightIntensity = Brightness.getBrightnessFromScreen;
     
     Record *record = [[Record alloc]init];
     dataList.soundIntensity = [record getDecibels];
