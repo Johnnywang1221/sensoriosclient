@@ -23,6 +23,7 @@
 		0496013C19CBC38700F2D67E /* CollectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496013B19CBC38700F2D67E /* CollectionData.m */; };
 		0496014019CBC3C300F2D67E /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496013F19CBC3C300F2D67E /* Upload.m */; };
 		0496014319CBC3E700F2D67E /* RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496014219CBC3E700F2D67E /* RandomString.m */; };
+		CE2C7B8419D904C900C03359 /* PicSave.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C7B8319D904C900C03359 /* PicSave.m */; };
 		CEA0E8B219D3B2DB0036FF61 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8B119D3B2DB0036FF61 /* Reachability.m */; };
 		CEA0E8B319D3B2DB0036FF61 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8B119D3B2DB0036FF61 /* Reachability.m */; };
 		CEA0E8C719D508140036FF61 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA0E8C619D508140036FF61 /* AVFoundation.framework */; };
@@ -74,6 +75,8 @@
 		0496013F19CBC3C300F2D67E /* Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Upload.m; sourceTree = "<group>"; };
 		0496014119CBC3E700F2D67E /* RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomString.h; sourceTree = "<group>"; };
 		0496014219CBC3E700F2D67E /* RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomString.m; sourceTree = "<group>"; };
+		CE2C7B8219D904C900C03359 /* PicSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicSave.h; sourceTree = "<group>"; };
+		CE2C7B8319D904C900C03359 /* PicSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicSave.m; sourceTree = "<group>"; };
 		CEA0E8B019D3B2C70036FF61 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		CEA0E8B119D3B2DB0036FF61 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		CEA0E8C619D508140036FF61 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -170,16 +173,8 @@
 				CEF7A8A819CBC18100A57CCF /* RealTimeViewController.m */,
 				CEF7A8AB19CBC19500A57CCF /* SettingViewController.h */,
 				CEF7A8AC19CBC19500A57CCF /* SettingViewController.m */,
-				CEF7A89F19CBC11C00A57CCF /* Sqlite.h */,
-				CEF7A8A019CBC11C00A57CCF /* Sqlite.m */,
-				CEF7A8FF19D2713800A57CCF /* Collect.h */,
-				CEF7A90019D2713800A57CCF /* Collect.m */,
-				CEA0E8C819D508390036FF61 /* Record.h */,
-				CEA0E8C919D508390036FF61 /* Record.m */,
 				CEF7A8A219CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.h */,
 				CEF7A8A319CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m */,
-				CEA0E8B019D3B2C70036FF61 /* Reachability.h */,
-				CEA0E8B119D3B2DB0036FF61 /* Reachability.m */,
 				0496011C19CAF89E00F2D67E /* Images.xcassets */,
 				0496011119CAF89E00F2D67E /* Supporting Files */,
 			);
@@ -220,10 +215,18 @@
 			children = (
 				0437FEA319D5647A008CE0E4 /* Brightness.h */,
 				0437FEA419D5647A008CE0E4 /* Brightness.m */,
+				CEA0E8C819D508390036FF61 /* Record.h */,
+				CEA0E8C919D508390036FF61 /* Record.m */,
 				0496014119CBC3E700F2D67E /* RandomString.h */,
 				0496014219CBC3E700F2D67E /* RandomString.m */,
 				0496013E19CBC3C300F2D67E /* Upload.h */,
 				0496013F19CBC3C300F2D67E /* Upload.m */,
+				CEF7A89F19CBC11C00A57CCF /* Sqlite.h */,
+				CEF7A8A019CBC11C00A57CCF /* Sqlite.m */,
+				CEF7A8FF19D2713800A57CCF /* Collect.h */,
+				CEF7A90019D2713800A57CCF /* Collect.m */,
+				CEA0E8B019D3B2C70036FF61 /* Reachability.h */,
+				CEA0E8B119D3B2DB0036FF61 /* Reachability.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -235,6 +238,8 @@
 				CEF7A89D19CBC0EA00A57CCF /* PicInfo.m */,
 				0496013A19CBC38700F2D67E /* CollectionData.h */,
 				0496013B19CBC38700F2D67E /* CollectionData.m */,
+				CE2C7B8219D904C900C03359 /* PicSave.h */,
+				CE2C7B8319D904C900C03359 /* PicSave.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 				0496014019CBC3C300F2D67E /* Upload.m in Sources */,
 				CEF7A90119D2713800A57CCF /* Collect.m in Sources */,
 				CEF7A8AD19CBC19500A57CCF /* SettingViewController.m in Sources */,
+				CE2C7B8419D904C900C03359 /* PicSave.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

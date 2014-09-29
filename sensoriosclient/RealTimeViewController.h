@@ -10,10 +10,13 @@
 #import <ImageIO/ImageIO.h>
 #import <CoreLocation/CoreLocation.h>
 #import <CoreMotion/CoreMotion.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "Sqlite.h"
 #import "PicInfo.h"
 #import "Collect.h"
+
+typedef void(^SaveImageCompletion)(NSError* error);
 
 @interface RealTimeViewController : UIViewController<CLLocationManagerDelegate>
 {

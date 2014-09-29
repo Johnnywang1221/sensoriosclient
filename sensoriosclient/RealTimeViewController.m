@@ -203,14 +203,14 @@
 //    }
     NSLog(@"metadata==%@",metadata);
     
-    [library saveWriteImage:image toAlbum:@"Sensor" withMetadata:metadata withCompletionBlock:^(NSError *error){
+   
+    [library saveWriteImage:image toAlbum:@"Sensor" withMetadata:metadata withID:thisPicInfo.picID withCompletionBlock:^(NSError *error){
         if (error) {
             NSLog( @"Error writing image with metadata to Photo Library: %@", error );
         } else {
             NSLog( @"Wrote image with metadata to Photo Library");
         }
     }];
-
     
     [self dismissModalViewControllerAnimated:YES];
     

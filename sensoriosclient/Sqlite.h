@@ -10,6 +10,7 @@
 #import <sqlite3.h>
 #import "PicInfo.h"
 #import "CollectionData.h"
+#import "PicSave.h"
 
 #define dbName @"sensor.sqlite"
 
@@ -24,7 +25,10 @@
 
 -(BOOL) insertDataList:(CollectionData *)insertList;
 -(BOOL) deleteDataList:(CollectionData *)deleteList;
-//-(NSMutableArray*) getList;
+
+-(BOOL) insertSaveList:(PicSave *)insertList;
+-(BOOL) deleteSaveList:(PicSave *)deleteList;
+-(NSMutableArray *)getFilePath;//get the pic which haven't been uploaded
 
 @end
 
