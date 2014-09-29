@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0437FEA519D5647A008CE0E4 /* Brightness.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FEA419D5647A008CE0E4 /* Brightness.m */; };
+		0437FF2019D8F02A008CE0E4 /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FF1F19D8F02A008CE0E4 /* Download.m */; };
+		0437FF2319D8F3C6008CE0E4 /* CommonDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FF2219D8F3C6008CE0E4 /* CommonDefinition.m */; };
 		0496010B19CAF89E00F2D67E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010A19CAF89E00F2D67E /* Foundation.framework */; };
 		0496010D19CAF89E00F2D67E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010C19CAF89E00F2D67E /* CoreGraphics.framework */; };
 		0496010F19CAF89E00F2D67E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010E19CAF89E00F2D67E /* UIKit.framework */; };
@@ -53,6 +55,10 @@
 /* Begin PBXFileReference section */
 		0437FEA319D5647A008CE0E4 /* Brightness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brightness.h; sourceTree = "<group>"; };
 		0437FEA419D5647A008CE0E4 /* Brightness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brightness.m; sourceTree = "<group>"; };
+		0437FF1E19D8F02A008CE0E4 /* Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Download.h; sourceTree = "<group>"; };
+		0437FF1F19D8F02A008CE0E4 /* Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Download.m; sourceTree = "<group>"; };
+		0437FF2119D8F3C6008CE0E4 /* CommonDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefinition.h; sourceTree = "<group>"; };
+		0437FF2219D8F3C6008CE0E4 /* CommonDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonDefinition.m; sourceTree = "<group>"; };
 		0496010719CAF89E00F2D67E /* sensoriosclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sensoriosclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0496010A19CAF89E00F2D67E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0496010C19CAF89E00F2D67E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -228,6 +234,10 @@
 				0496014219CBC3E700F2D67E /* RandomString.m */,
 				0496013E19CBC3C300F2D67E /* Upload.h */,
 				0496013F19CBC3C300F2D67E /* Upload.m */,
+				0437FF1E19D8F02A008CE0E4 /* Download.h */,
+				0437FF1F19D8F02A008CE0E4 /* Download.m */,
+				0437FF2119D8F3C6008CE0E4 /* CommonDefinition.h */,
+				0437FF2219D8F3C6008CE0E4 /* CommonDefinition.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -345,6 +355,7 @@
 				0496011719CAF89E00F2D67E /* main.m in Sources */,
 				CEF7A8AA19CBC18100A57CCF /* RealTimeViewController.m in Sources */,
 				CEF7A8A919CBC18100A57CCF /* MainPageViewController.m in Sources */,
+				0437FF2319D8F3C6008CE0E4 /* CommonDefinition.m in Sources */,
 				CEF7A8A119CBC11C00A57CCF /* Sqlite.m in Sources */,
 				CEF7A89E19CBC0EA00A57CCF /* PicInfo.m in Sources */,
 				CEF7A8A419CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
@@ -353,6 +364,7 @@
 				0496014319CBC3E700F2D67E /* RandomString.m in Sources */,
 				0496014019CBC3C300F2D67E /* Upload.m in Sources */,
 				CEF7A90119D2713800A57CCF /* Collect.m in Sources */,
+				0437FF2019D8F02A008CE0E4 /* Download.m in Sources */,
 				CEF7A8AD19CBC19500A57CCF /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
