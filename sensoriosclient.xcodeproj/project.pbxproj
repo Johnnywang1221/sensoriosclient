@@ -25,12 +25,12 @@
 		0496013C19CBC38700F2D67E /* CollectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496013B19CBC38700F2D67E /* CollectionData.m */; };
 		0496014019CBC3C300F2D67E /* Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496013F19CBC3C300F2D67E /* Upload.m */; };
 		0496014319CBC3E700F2D67E /* RandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0496014219CBC3E700F2D67E /* RandomString.m */; };
-		CEA0E86919D2FBA00036FF61 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA0E86819D2FBA00036FF61 /* SystemConfiguration.framework */; };
-		CEA0E86B19D2FC180036FF61 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA0E86A19D2FC180036FF61 /* CFNetwork.framework */; };
+		CE2C7B8419D904C900C03359 /* PicSave.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C7B8319D904C900C03359 /* PicSave.m */; };
 		CEA0E8B219D3B2DB0036FF61 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8B119D3B2DB0036FF61 /* Reachability.m */; };
 		CEA0E8B319D3B2DB0036FF61 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8B119D3B2DB0036FF61 /* Reachability.m */; };
-		CEA0E8BC19D3F6180036FF61 /* IOPowerSources.h in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8AE19D2FFB40036FF61 /* IOPowerSources.h */; };
-		CEA0E8BD19D3F6200036FF61 /* IOPSKeys.h in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8AF19D2FFE20036FF61 /* IOPSKeys.h */; };
+		CEA0E8C719D508140036FF61 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA0E8C619D508140036FF61 /* AVFoundation.framework */; };
+		CEA0E8CA19D508390036FF61 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8C919D508390036FF61 /* Record.m */; };
+		CEA0E8CB19D508390036FF61 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA0E8C919D508390036FF61 /* Record.m */; };
 		CEF7A89319CBB9DB00A57CCF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */; };
 		CEF7A89519CBB9E300A57CCF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */; };
 		CEF7A89E19CBC0EA00A57CCF /* PicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A89D19CBC0EA00A57CCF /* PicInfo.m */; };
@@ -81,12 +81,13 @@
 		0496013F19CBC3C300F2D67E /* Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Upload.m; sourceTree = "<group>"; };
 		0496014119CBC3E700F2D67E /* RandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomString.h; sourceTree = "<group>"; };
 		0496014219CBC3E700F2D67E /* RandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomString.m; sourceTree = "<group>"; };
-		CEA0E86819D2FBA00036FF61 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CEA0E86A19D2FC180036FF61 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		CEA0E8AE19D2FFB40036FF61 /* IOPowerSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOPowerSources.h; path = ../IOPowerSources.h; sourceTree = "<group>"; };
-		CEA0E8AF19D2FFE20036FF61 /* IOPSKeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IOPSKeys.h; path = ../IOPSKeys.h; sourceTree = "<group>"; };
+		CE2C7B8219D904C900C03359 /* PicSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicSave.h; sourceTree = "<group>"; };
+		CE2C7B8319D904C900C03359 /* PicSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicSave.m; sourceTree = "<group>"; };
 		CEA0E8B019D3B2C70036FF61 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		CEA0E8B119D3B2DB0036FF61 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		CEA0E8C619D508140036FF61 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CEA0E8C819D508390036FF61 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		CEA0E8C919D508390036FF61 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
 		CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CEF7A89C19CBC0EA00A57CCF /* PicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicInfo.h; sourceTree = "<group>"; };
@@ -110,8 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA0E86B19D2FC180036FF61 /* CFNetwork.framework in Frameworks */,
-				CEA0E86919D2FBA00036FF61 /* SystemConfiguration.framework in Frameworks */,
+				CEA0E8C719D508140036FF61 /* AVFoundation.framework in Frameworks */,
 				CEF7A89519CBB9E300A57CCF /* CoreLocation.framework in Frameworks */,
 				CEF7A89319CBB9DB00A57CCF /* libsqlite3.dylib in Frameworks */,
 				0496010D19CAF89E00F2D67E /* CoreGraphics.framework in Frameworks */,
@@ -155,8 +155,7 @@
 		0496010919CAF89E00F2D67E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CEA0E86A19D2FC180036FF61 /* CFNetwork.framework */,
-				CEA0E86819D2FBA00036FF61 /* SystemConfiguration.framework */,
+				CEA0E8C619D508140036FF61 /* AVFoundation.framework */,
 				CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */,
 				CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */,
 				0496010A19CAF89E00F2D67E /* Foundation.framework */,
@@ -180,16 +179,8 @@
 				CEF7A8A819CBC18100A57CCF /* RealTimeViewController.m */,
 				CEF7A8AB19CBC19500A57CCF /* SettingViewController.h */,
 				CEF7A8AC19CBC19500A57CCF /* SettingViewController.m */,
-				CEF7A89F19CBC11C00A57CCF /* Sqlite.h */,
-				CEF7A8A019CBC11C00A57CCF /* Sqlite.m */,
-				CEF7A8FF19D2713800A57CCF /* Collect.h */,
-				CEF7A90019D2713800A57CCF /* Collect.m */,
 				CEF7A8A219CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.h */,
 				CEF7A8A319CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m */,
-				CEA0E8B019D3B2C70036FF61 /* Reachability.h */,
-				CEA0E8B119D3B2DB0036FF61 /* Reachability.m */,
-				CEA0E8AE19D2FFB40036FF61 /* IOPowerSources.h */,
-				CEA0E8AF19D2FFE20036FF61 /* IOPSKeys.h */,
 				0496011C19CAF89E00F2D67E /* Images.xcassets */,
 				0496011119CAF89E00F2D67E /* Supporting Files */,
 			);
@@ -230,6 +221,8 @@
 			children = (
 				0437FEA319D5647A008CE0E4 /* Brightness.h */,
 				0437FEA419D5647A008CE0E4 /* Brightness.m */,
+				CEA0E8C819D508390036FF61 /* Record.h */,
+				CEA0E8C919D508390036FF61 /* Record.m */,
 				0496014119CBC3E700F2D67E /* RandomString.h */,
 				0496014219CBC3E700F2D67E /* RandomString.m */,
 				0496013E19CBC3C300F2D67E /* Upload.h */,
@@ -249,6 +242,8 @@
 				CEF7A89D19CBC0EA00A57CCF /* PicInfo.m */,
 				0496013A19CBC38700F2D67E /* CollectionData.h */,
 				0496013B19CBC38700F2D67E /* CollectionData.m */,
+				CE2C7B8219D904C900C03359 /* PicSave.h */,
+				CE2C7B8319D904C900C03359 /* PicSave.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -348,10 +343,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA0E8BD19D3F6200036FF61 /* IOPSKeys.h in Sources */,
-				CEA0E8BC19D3F6180036FF61 /* IOPowerSources.h in Sources */,
 				CEA0E8B219D3B2DB0036FF61 /* Reachability.m in Sources */,
 				0496011B19CAF89E00F2D67E /* AppDelegate.m in Sources */,
+				CEA0E8CA19D508390036FF61 /* Record.m in Sources */,
 				0496011719CAF89E00F2D67E /* main.m in Sources */,
 				CEF7A8AA19CBC18100A57CCF /* RealTimeViewController.m in Sources */,
 				CEF7A8A919CBC18100A57CCF /* MainPageViewController.m in Sources */,
@@ -366,6 +360,7 @@
 				CEF7A90119D2713800A57CCF /* Collect.m in Sources */,
 				0437FF2019D8F02A008CE0E4 /* Download.m in Sources */,
 				CEF7A8AD19CBC19500A57CCF /* SettingViewController.m in Sources */,
+				CE2C7B8419D904C900C03359 /* PicSave.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA0E8B319D3B2DB0036FF61 /* Reachability.m in Sources */,
+				CEA0E8CB19D508390036FF61 /* Record.m in Sources */,
 				0496013019CAF89E00F2D67E /* sensoriosclientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

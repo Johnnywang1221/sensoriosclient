@@ -32,6 +32,11 @@
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    NSString *model =[[NSUUID UUID]UUIDString];
+    [defaults setObject:model forKey:@"MODEL"];
+    
     return YES;
 }
 

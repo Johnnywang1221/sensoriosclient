@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "Sqlite.h"
+#import "PicSave.h"
 
 typedef void(^SaveImageCompletion)(NSError* error);
 
@@ -17,5 +19,7 @@ typedef void(^SaveImageCompletion)(NSError* error);
 -(void)saveImage:(UIImage*)image toAlbum:(NSString*)albumName withCompletionBlock:(SaveImageCompletion)completionBlock;
 
 -(void)addAssetURL:(NSURL*)assetURL toAlbum:(NSString*)albumName withCompletionBlock:(SaveImageCompletion)completionBlock;
+
+-(void)saveWriteImage:(UIImage*)image toAlbum:(NSString*)albumName withMetadata:(NSDictionary *)metadata withID:(int)picID withCompletionBlock:(SaveImageCompletion)completionBlock;
 
 @end

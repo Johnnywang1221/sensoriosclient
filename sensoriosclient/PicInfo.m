@@ -27,7 +27,7 @@
 -(id) init
 {
     
-    picID = @"";
+    picID = 0;
     picTopic = @"";
     xDirect = 0;
     yDirect = 0;

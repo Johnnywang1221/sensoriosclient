@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
+//#import <CoreLocation/CoreLocation.h>
 //#import <SystemConfiguration/SystemConfiguration.h>
 //#import <CFNetwork/CFNetwork.h>
 //#import <sys/utsname.h>
@@ -15,6 +15,8 @@
 //#import "IOPSKeys.h"
 #import "CollectionData.h"
 #import "Reachability.h"
+#import "Record.h"
+#import "Brightness.h"
 
 @interface Collect : NSObject
 
