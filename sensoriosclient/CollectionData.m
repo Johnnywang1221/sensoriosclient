@@ -37,4 +37,17 @@
     return self;
 }
 
+-(NSDictionary *)toDictionary{
+    NSMutableDictionary *collectionDataDictionary = [[NSMutableDictionary alloc]init];
+    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.createdTime] forKey:@"Time"];
+    [collectionDataDictionary setValue:@"0.0" forKey:@"Light"];
+    [collectionDataDictionary setValue:@"1.0" forKey:@"Noise"];
+    [collectionDataDictionary setValue:@"1" forKey:@"BatteryState"];
+    [collectionDataDictionary setValue:@"1" forKey:@"ChargeState"];
+    [collectionDataDictionary setValue:@"1" forKey:@"NetState"];
+    [collectionDataDictionary setValue:@"39.961445" forKey:@"Latitude"];
+    [collectionDataDictionary setValue:@"116.3498466666667" forKey:@"Longitude"];
+    return collectionDataDictionary;
+}
+
 @end
