@@ -6,5 +6,6 @@
 //  Copyright (c) 2014年 bnrc. All rights reserved.
 //
 
-extern NSString *const UploadImageURL;
-extern NSString *const UploadCollectionJsonDATAURL;
+extern NSString *const UploadBaseURL;
+extern NSString *const UploadImageAppendURL;
+extern NSString *const UploadCollectionJsonDataAppendURL;
