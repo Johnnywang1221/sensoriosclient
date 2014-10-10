@@ -7,11 +7,13 @@
 //
 
 #import "AFHTTPSessionManager.h"
+#import "CollectionData.h"
 
 @interface SensorHTTPClient : AFHTTPSessionManager
 
 + (SensorHTTPClient *)sharedSensorHTTPClient;
 #pragma --upload
 - (void)uploadImageData:(NSData *)ImageData toURL:(NSString *)urlString;
+- (void)uploadCollectionData:(CollectionData *)collectionData toURL:(NSString *)urlString;
 
 @end

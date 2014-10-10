@@ -9,6 +9,8 @@
 #import "SensorHTTPClient.h"
 #import "CommonDefinition.h"
 #import "RandomString.h"
+#import "CollectionData.h"
+
 
 @implementation SensorHTTPClient
 + (SensorHTTPClient *)sharedSensorHTTPClient{
@@ -32,6 +34,40 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"error%@",error);
     }];
+}
+
+- (void)uploadCollectionData:(CollectionData *)collectionData toURL:(NSString *)urlString{
+    NSString *uploadFormatString = [self formatJSONDicToJSONStringForUpload:collectionData];
+    NSDictionary *params = @{@"upload":uploadFormatString};
+    [self POST:urlString parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@",error);
+
+    }];
+    
+    
+}
+
+#pragma --utility
+- (NSString *)formatJSONDicToJSONStringForUpload:(CollectionData *)collectionData{
+    NSMutableDictionary *uploadFormatDic = [[NSMutableDictionary alloc]init];
+    NSString *username = [[NSUserDefaults standardUserDefaults]objectForKey:@"MODEL"];
+    [uploadFormatDic setObject:username forKey:@"username"];
+    NSMutableArray *dataArray = [[NSMutableArray alloc]init];
+    NSDictionary *dataDic = [collectionData toDictionaryWithStringValue];
+    [dataArray addObject:dataDic];
+    [uploadFormatDic setObject:dataArray forKey:@"data"];
+    NSError *error;
+    NSData *uploadFormatData = [NSJSONSerialization dataWithJSONObject:uploadFormatDic options:kNilOptions error:&error];
+    if (error) {
+        NSLog(@"uploadFormatData error");
+        return nil;
+    }
+    NSString *uploadFormatDataStr = [[NSString alloc]initWithData:uploadFormatData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",uploadFormatDataStr);
+    return uploadFormatDataStr;
+    
 }
 
 @end
