@@ -13,8 +13,28 @@
 
 @implementation AppDelegate
 
+//设置默认配置，主要是生成用户ID NSString *model =[[NSUUID UUID]UUIDString];
+
+
+- (void)registerDefaults{
+    NSMutableDictionary *defaultsDic = [[NSMutableDictionary alloc]init];
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    [defaultsDic setObject:@"YES" forKey:@"isFirstLaunch"];
+    //other defaults later
+    [defaults registerDefaults:defaultsDic];
+    NSString *isFirstLaunch = [defaults objectForKey:@"isFirstLaunch"];
+    if ([isFirstLaunch isEqualToString:@"YES"]) {
+        
+        NSString *model =[[NSUUID UUID]UUIDString];
+        [defaults setObject:model forKey:@"MODEL"];
+        [defaults setObject:@"NO" forKey:@"isFirstLaunch"];
+    }
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [self registerDefaults];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     // UI of the app:tab based.
@@ -32,10 +52,6 @@
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
-    NSString *model =[[NSUUID UUID]UUIDString];
-    [defaults setObject:model forKey:@"MODEL"];
     
     return YES;
 }

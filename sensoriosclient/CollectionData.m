@@ -37,16 +37,17 @@
     return self;
 }
 
--(NSDictionary *)toDictionary{
+-(NSDictionary *)toDictionaryWithStringValue{
     NSMutableDictionary *collectionDataDictionary = [[NSMutableDictionary alloc]init];
-    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.createdTime] forKey:@"Time"];
-    [collectionDataDictionary setValue:@"0.0" forKey:@"Light"];
-    [collectionDataDictionary setValue:@"1.0" forKey:@"Noise"];
-    [collectionDataDictionary setValue:@"1" forKey:@"BatteryState"];
-    [collectionDataDictionary setValue:@"1" forKey:@"ChargeState"];
-    [collectionDataDictionary setValue:@"1" forKey:@"NetState"];
-    [collectionDataDictionary setValue:@"39.961445" forKey:@"Latitude"];
-    [collectionDataDictionary setValue:@"116.3498466666667" forKey:@"Longitude"];
+    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.createdTime].description forKey:@"Time"];
+    [collectionDataDictionary setObject:[NSNumber numberWithFloat:self.lightIntensity].description forKey:@"Light"];
+    [collectionDataDictionary setObject:[NSNumber numberWithFloat:self.soundIntensity].description forKey:@"Noise"];
+    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.batteryState].description forKey:@"BatteryState"];
+    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.chargeState].description forKey:@"ChargeState"];
+    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.netState].description forKey:@"NetState"];
+    [collectionDataDictionary setObject:[NSNumber numberWithFloat:self.latitude].description forKey:@"Latitude"];
+    [collectionDataDictionary setObject:[NSNumber numberWithFloat:self.longitude].description forKey:@"Longitude"];
+    //[collectionDataDictionary setObject:@"testValue" forKey:@"testKey"];
     return collectionDataDictionary;
 }
 

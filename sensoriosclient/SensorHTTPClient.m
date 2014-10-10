@@ -22,11 +22,10 @@
 #pragma --upload
 - (void)uploadImageData:(NSData *)ImageData toURL:(NSString *)urlString{
     
-    SensorHTTPClient *client = [SensorHTTPClient sharedSensorHTTPClient];
     
     NSString *filename = [NSString stringWithFormat:@"%@.jpg",[RandomString randomStringFromTime]];
     
-    [client POST:UploadImageAppendURL parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [self POST:urlString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFormData:ImageData name:@"uploadImage" filename:filename];
     } success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"success!%@",responseObject);
