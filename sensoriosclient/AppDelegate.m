@@ -23,6 +23,8 @@
     //other defaults later
     [defaults registerDefaults:defaultsDic];
     NSString *isFirstLaunch = [defaults objectForKey:@"isFirstLaunch"];
+    
+    //用户第一次打开应用
     if ([isFirstLaunch isEqualToString:@"YES"]) {
         
         NSString *model =[[NSUUID UUID]UUIDString];

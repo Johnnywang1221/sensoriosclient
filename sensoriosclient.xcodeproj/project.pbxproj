@@ -31,6 +31,7 @@
 		0437FF2319D8F3C6008CE0E4 /* CommonDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FF2219D8F3C6008CE0E4 /* CommonDefinition.m */; };
 		0460AF4019E76C35002C6EA0 /* CollectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0460AF3F19E76C35002C6EA0 /* CollectionData.m */; };
 		0460AF8019E7BE34002C6EA0 /* SensorHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0460AF7F19E7BE34002C6EA0 /* SensorHTTPClient.m */; };
+		0460AF8319E7C218002C6EA0 /* WebPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0460AF8219E7C218002C6EA0 /* WebPhoto.m */; };
 		0496010B19CAF89E00F2D67E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010A19CAF89E00F2D67E /* Foundation.framework */; };
 		0496010D19CAF89E00F2D67E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010C19CAF89E00F2D67E /* CoreGraphics.framework */; };
 		0496010F19CAF89E00F2D67E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496010E19CAF89E00F2D67E /* UIKit.framework */; };
@@ -119,6 +120,8 @@
 		0460AF3F19E76C35002C6EA0 /* CollectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionData.m; sourceTree = "<group>"; };
 		0460AF7E19E7BE34002C6EA0 /* SensorHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorHTTPClient.h; sourceTree = "<group>"; };
 		0460AF7F19E7BE34002C6EA0 /* SensorHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorHTTPClient.m; sourceTree = "<group>"; };
+		0460AF8119E7C218002C6EA0 /* WebPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPhoto.h; sourceTree = "<group>"; };
+		0460AF8219E7C218002C6EA0 /* WebPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPhoto.m; sourceTree = "<group>"; };
 		0496010719CAF89E00F2D67E /* sensoriosclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sensoriosclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0496010A19CAF89E00F2D67E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0496010C19CAF89E00F2D67E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -361,6 +364,8 @@
 				CEF7A89D19CBC0EA00A57CCF /* PicInfo.m */,
 				CE2C7B8219D904C900C03359 /* PicSave.h */,
 				CE2C7B8319D904C900C03359 /* PicSave.m */,
+				0460AF8119E7C218002C6EA0 /* WebPhoto.h */,
+				0460AF8219E7C218002C6EA0 /* WebPhoto.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 				CEA0E8CA19D508390036FF61 /* Record.m in Sources */,
 				0496011719CAF89E00F2D67E /* main.m in Sources */,
 				0460AF8019E7BE34002C6EA0 /* SensorHTTPClient.m in Sources */,
+				0460AF8319E7C218002C6EA0 /* WebPhoto.m in Sources */,
 				CEF7A8AA19CBC18100A57CCF /* RealTimeViewController.m in Sources */,
 				0460AF4019E76C35002C6EA0 /* CollectionData.m in Sources */,
 				CEF7A8A919CBC18100A57CCF /* MainPageViewController.m in Sources */,

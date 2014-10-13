@@ -10,6 +10,7 @@
 #import "RealTimeViewController.h"
 
 @interface RealTimeViewController ()
+@property (nonatomic,strong) UISegmentedControl *segmentedControl;
 
 @end
 
@@ -46,8 +47,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSArray *items = [NSArray arrayWithObjects:@"实景", @"专题", nil];
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:items];
-    self.navigationItem.titleView = segmentedControl;
+    self.segmentedControl = [[UISegmentedControl alloc]initWithItems:items];
+    self.navigationItem.titleView = self.segmentedControl;
     self.library = [[ALAssetsLibrary alloc] init];
     
     if([CLLocationManager locationServicesEnabled]) {
