@@ -7,19 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import "CustomImagePickerController.h"
 
-
-
-
-
-
-@interface RealTimeViewController : UIViewController<UIImagePickerControllerDelegate,CustomImagePickerControllerDelegate,CLLocationManagerDelegate>
+@interface RealTimeViewController : UIViewController<UIImagePickerControllerDelegate,CustomImagePickerControllerDelegate>
 {
     
 }
-
-//@property (nonatomic, strong)UIImagePickerController *picker;
 
 @end
