@@ -29,6 +29,9 @@
 		04176BC419E51D41004E2D43 /* Sqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 04176BC119E51D41004E2D43 /* Sqlite.m */; };
 		0437FEA519D5647A008CE0E4 /* Brightness.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FEA419D5647A008CE0E4 /* Brightness.m */; };
 		0437FF2319D8F3C6008CE0E4 /* CommonDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0437FF2219D8F3C6008CE0E4 /* CommonDefinition.m */; };
+		043DBF5E19EE0A59009EA9A8 /* RealTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043DBF5919EE0A58009EA9A8 /* RealTimeViewController.m */; };
+		043DBF5F19EE0A59009EA9A8 /* PhotoWallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043DBF5B19EE0A59009EA9A8 /* PhotoWallViewController.m */; };
+		043DBF6019EE0A59009EA9A8 /* PhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043DBF5D19EE0A59009EA9A8 /* PhotoAlbumViewController.m */; };
 		0460AF4019E76C35002C6EA0 /* CollectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0460AF3F19E76C35002C6EA0 /* CollectionData.m */; };
 		0460AF8019E7BE34002C6EA0 /* SensorHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0460AF7F19E7BE34002C6EA0 /* SensorHTTPClient.m */; };
 		0460AF8319E7C218002C6EA0 /* WebPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0460AF8219E7C218002C6EA0 /* WebPhoto.m */; };
@@ -55,7 +58,6 @@
 		CEF7A89E19CBC0EA00A57CCF /* PicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A89D19CBC0EA00A57CCF /* PicInfo.m */; };
 		CEF7A8A419CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A8A319CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		CEF7A8A919CBC18100A57CCF /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A8A619CBC18100A57CCF /* MainPageViewController.m */; };
-		CEF7A8AA19CBC18100A57CCF /* RealTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A8A819CBC18100A57CCF /* RealTimeViewController.m */; };
 		CEF7A8AD19CBC19500A57CCF /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7A8AC19CBC19500A57CCF /* SettingViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,12 @@
 		0437FEA419D5647A008CE0E4 /* Brightness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brightness.m; sourceTree = "<group>"; };
 		0437FF2119D8F3C6008CE0E4 /* CommonDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefinition.h; sourceTree = "<group>"; };
 		0437FF2219D8F3C6008CE0E4 /* CommonDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonDefinition.m; sourceTree = "<group>"; };
+		043DBF5819EE0A58009EA9A8 /* RealTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimeViewController.h; sourceTree = "<group>"; };
+		043DBF5919EE0A58009EA9A8 /* RealTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeViewController.m; sourceTree = "<group>"; };
+		043DBF5A19EE0A59009EA9A8 /* PhotoWallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoWallViewController.h; sourceTree = "<group>"; };
+		043DBF5B19EE0A59009EA9A8 /* PhotoWallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoWallViewController.m; sourceTree = "<group>"; };
+		043DBF5C19EE0A59009EA9A8 /* PhotoAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbumViewController.h; sourceTree = "<group>"; };
+		043DBF5D19EE0A59009EA9A8 /* PhotoAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbumViewController.m; sourceTree = "<group>"; };
 		0460AF3E19E76C35002C6EA0 /* CollectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionData.h; sourceTree = "<group>"; };
 		0460AF3F19E76C35002C6EA0 /* CollectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionData.m; sourceTree = "<group>"; };
 		0460AF7E19E7BE34002C6EA0 /* SensorHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorHTTPClient.h; sourceTree = "<group>"; };
@@ -154,8 +162,6 @@
 		CEF7A8A319CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		CEF7A8A519CBC18100A57CCF /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageViewController.h; sourceTree = "<group>"; };
 		CEF7A8A619CBC18100A57CCF /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageViewController.m; sourceTree = "<group>"; };
-		CEF7A8A719CBC18100A57CCF /* RealTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimeViewController.h; sourceTree = "<group>"; };
-		CEF7A8A819CBC18100A57CCF /* RealTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeViewController.m; sourceTree = "<group>"; };
 		CEF7A8AB19CBC19500A57CCF /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		CEF7A8AC19CBC19500A57CCF /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -293,8 +299,12 @@
 				0496011A19CAF89E00F2D67E /* AppDelegate.m */,
 				CEF7A8A519CBC18100A57CCF /* MainPageViewController.h */,
 				CEF7A8A619CBC18100A57CCF /* MainPageViewController.m */,
-				CEF7A8A719CBC18100A57CCF /* RealTimeViewController.h */,
-				CEF7A8A819CBC18100A57CCF /* RealTimeViewController.m */,
+				043DBF5819EE0A58009EA9A8 /* RealTimeViewController.h */,
+				043DBF5919EE0A58009EA9A8 /* RealTimeViewController.m */,
+				043DBF5A19EE0A59009EA9A8 /* PhotoWallViewController.h */,
+				043DBF5B19EE0A59009EA9A8 /* PhotoWallViewController.m */,
+				043DBF5C19EE0A59009EA9A8 /* PhotoAlbumViewController.h */,
+				043DBF5D19EE0A59009EA9A8 /* PhotoAlbumViewController.m */,
 				CEF7A8AB19CBC19500A57CCF /* SettingViewController.h */,
 				CEF7A8AC19CBC19500A57CCF /* SettingViewController.m */,
 				CEF7A8A219CBC13A00A57CCF /* ALAssetsLibrary+CustomPhotoAlbum.h */,
@@ -417,6 +427,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = bnrc;
 				TargetAttributes = {
+					0496010619CAF89E00F2D67E = {
+						DevelopmentTeam = GM3FDHAM9P;
+					};
 					0496012119CAF89E00F2D67E = {
 						TestTargetID = 0496010619CAF89E00F2D67E;
 					};
@@ -473,8 +486,8 @@
 				0496011719CAF89E00F2D67E /* main.m in Sources */,
 				0460AF8019E7BE34002C6EA0 /* SensorHTTPClient.m in Sources */,
 				0460AF8319E7C218002C6EA0 /* WebPhoto.m in Sources */,
-				CEF7A8AA19CBC18100A57CCF /* RealTimeViewController.m in Sources */,
 				0460AF4019E76C35002C6EA0 /* CollectionData.m in Sources */,
+				043DBF5F19EE0A59009EA9A8 /* PhotoWallViewController.m in Sources */,
 				CEF7A8A919CBC18100A57CCF /* MainPageViewController.m in Sources */,
 				0405329019E61D7E0001FBCC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				0437FF2319D8F3C6008CE0E4 /* CommonDefinition.m in Sources */,
@@ -494,8 +507,10 @@
 				04176BC319E51D41004E2D43 /* Reachability.m in Sources */,
 				CEF7A8AD19CBC19500A57CCF /* SettingViewController.m in Sources */,
 				CE2C7B8419D904C900C03359 /* PicSave.m in Sources */,
+				043DBF6019EE0A59009EA9A8 /* PhotoAlbumViewController.m in Sources */,
 				04176BC219E51D41004E2D43 /* Collect.m in Sources */,
 				0405329219E61D7E0001FBCC /* UIButton+AFNetworking.m in Sources */,
+				043DBF5E19EE0A59009EA9A8 /* RealTimeViewController.m in Sources */,
 				0405329519E61D7E0001FBCC /* UIRefreshControl+AFNetworking.m in Sources */,
 				0405328719E61D7E0001FBCC /* AFHTTPRequestOperationManager.m in Sources */,
 				0405328A19E61D7E0001FBCC /* AFSecurityPolicy.m in Sources */,

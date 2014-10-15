@@ -18,7 +18,7 @@
 
 typedef void(^SaveImageCompletion)(NSError* error);
 
-@interface RealTimeViewController : UIViewController<CLLocationManagerDelegate>
+@interface RealTimeViewController : UIViewController<CLLocationManagerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 {
     float longitude;
     float latitude;
