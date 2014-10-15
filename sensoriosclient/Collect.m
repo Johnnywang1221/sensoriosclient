@@ -10,6 +10,8 @@
 
 @implementation Collect
 
+@synthesize locationManager;
+
 @synthesize dataId;
 @synthesize lightIntensity;
 @synthesize soundIntensity;
@@ -32,13 +34,13 @@
     Record *record = [[Record alloc]init];
     dataList.soundIntensity = [record getDecibels];
     //dataList.createdTime = [[NSDate date] timeIntervalSince1970];
-    NSLog(@"COLLECT\nlight==%f\nsound==%f", dataList.lightIntensity, dataList.soundIntensity);
+//    NSLog(@"COLLECT\nlight==%f\nsound==%f", dataList.lightIntensity, dataList.soundIntensity);
     dataList.chargeState = [self getBatteryState];
     dataList.batteryState = self.batteryState;
     [self checkNetwork];
     dataList.netState = self.netState;
-    NSLog(@"COLLECT\ncharge==%d\nbattery==%d\nnetwork==%d", dataList.chargeState, dataList.batteryState, dataList.netState);
-    
+//    NSLog(@"COLLECT\ncharge==%d\nbattery==%d\nnetwork==%d", dataList.chargeState, dataList.batteryState, dataList.netState);
+
     return dataList;
 }
 

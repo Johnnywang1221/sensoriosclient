@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <CoreLocation/CoreLocation.h>
+#import <CoreLocation/CoreLocation.h>
 //#import <SystemConfiguration/SystemConfiguration.h>
 //#import <CFNetwork/CFNetwork.h>
 //#import <sys/utsname.h>
@@ -18,7 +18,9 @@
 #import "Record.h"
 #import "Brightness.h"
 
-@interface Collect : NSObject
+@interface Collect : NSObject <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @property(nonatomic) long dataId;
 @property(nonatomic) float lightIntensity;
@@ -27,7 +29,6 @@
 @property(nonatomic) int chargeState;
 @property(nonatomic) int batteryState;
 @property(nonatomic) int netState;
-
 @property (nonatomic) Reachability *hostReachability;
 @property (nonatomic) Reachability *internetReachability;
 @property (nonatomic) Reachability *wifiReachability;
