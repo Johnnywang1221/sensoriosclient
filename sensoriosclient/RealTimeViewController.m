@@ -41,9 +41,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSArray *items = [NSArray arrayWithObjects:@"实景", @"专题", nil];
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems:items];
-    self.navigationItem.titleView = segmentedControl;
-    
+    self.segmentedControl = [[UISegmentedControl alloc]initWithItems:items];
+    self.navigationItem.titleView = self.segmentedControl;
+    [self.segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
+    self.segmentedControl.selectedSegmentIndex = 0;
+    if (!self.photoWallViewController) {
+        self.photoWallViewController = [[PhotoWallViewController alloc]init];
+        self.photoWallView = self.photoWallViewController.view;
+        
+        [self addChildViewController:self.photoWallViewController];
+        [self.view addSubview:self.photoWallView];
+        [self.photoAlbumViewController didMoveToParentViewController:self];
+        
+    }
  }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +76,43 @@
 #pragma mark CustomImagePickerControllerDelegate
 - (void)cancelCamera{
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma --segmentControl
+
+-(void)segmentChanged:(UISegmentedControl *)sender{
+    NSInteger selectedSegmentIndex = [sender selectedSegmentIndex];
+    switch (selectedSegmentIndex) {
+        case 0://添加PhotoWallViewController
+            if (!self.photoWallViewController) {
+                self.photoWallViewController = [[PhotoWallViewController alloc]init];
+                self.photoWallView = self.photoWallViewController.view;
+                
+                [self addChildViewController:self.photoWallViewController];
+                [self.view addSubview:self.photoWallView];
+                [self.photoAlbumViewController didMoveToParentViewController:self];
+                
+            }
+            [self.view bringSubviewToFront:self.photoWallView];
+            
+            
+            break;
+        case 1://添加PhotoAlbumViewController
+            if (!self.photoAlbumViewController) {
+                self.photoAlbumViewController = [[PhotoAlbumViewController alloc]init];
+                self.photoAlbumView = self.photoAlbumViewController.view;
+                [self addChildViewController:self.photoAlbumViewController];
+                [self.view addSubview:self.photoAlbumView];
+                [self.photoAlbumViewController didMoveToParentViewController:self];
+            }
+            [self.view bringSubviewToFront:self.photoAlbumView];
+            
+            break;
+            
+            
+        default:
+            break;
+    }
 }
 
 /*

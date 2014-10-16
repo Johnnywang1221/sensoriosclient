@@ -283,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				CE1F73D419E6225900304269 /* QuartzCore.framework */,
+				0405326019E61D7E0001FBCC /* AFNetworking */,
+				0405327419E61D7E0001FBCC /* UIKit+AFNetworking */,
 				CEA0E8C619D508140036FF61 /* AVFoundation.framework */,
 				CEF7A89419CBB9E300A57CCF /* CoreLocation.framework */,
 				CEF7A89219CBB9DB00A57CCF /* libsqlite3.dylib */,
@@ -514,6 +516,7 @@
 				0496014019CBC3C300F2D67E /* Upload.m in Sources */,
 				CEF7A90119D2713800A57CCF /* Collect.m in Sources */,
 				CE1F741919E773C500304269 /* CustomImagePickerController.m in Sources */,
+				04176BC319E51D41004E2D43 /* Reachability.m in Sources */,
 				CEF7A8AD19CBC19500A57CCF /* SettingViewController.m in Sources */,
 				CE2C7B8419D904C900C03359 /* PicSave.m in Sources */,
 				043DBF6019EE0A59009EA9A8 /* PhotoAlbumViewController.m in Sources */,
