@@ -21,5 +21,7 @@
 @property(nonatomic) float latitude;
 @property(nonatomic) float altitude;
 
+-(NSDictionary *)toDictionaryWithStringValue;
+
 
 @end

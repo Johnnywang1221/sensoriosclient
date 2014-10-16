@@ -37,4 +37,18 @@
     return self;
 }
 
+-(NSDictionary *)toDictionaryWithStringValue{
+    NSMutableDictionary *collectionDataDictionary = [[NSMutableDictionary alloc]init];
+    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.createdTime].description forKey:@"Time"];
+    [collectionDataDictionary setObject:[NSNumber numberWithFloat:self.lightIntensity].description forKey:@"Light"];
+    [collectionDataDictionary setObject:[NSNumber numberWithFloat:self.soundIntensity].description forKey:@"Noise"];
+    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.batteryState].description forKey:@"BatteryState"];
+    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.chargeState].description forKey:@"ChargeState"];
+    [collectionDataDictionary setObject:[NSNumber numberWithInt:self.netState].description forKey:@"NetState"];
+    [collectionDataDictionary setObject:[NSNumber numberWithFloat:self.latitude].description forKey:@"Latitude"];
+    [collectionDataDictionary setObject:[NSNumber numberWithFloat:self.longitude].description forKey:@"Longitude"];
+    //[collectionDataDictionary setObject:@"testValue" forKey:@"testKey"];
+    return collectionDataDictionary;
+}
+
 @end

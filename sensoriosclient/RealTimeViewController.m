@@ -8,8 +8,15 @@
 //
 
 #import "RealTimeViewController.h"
+#import "PhotoAlbumViewController.h"
+#import "PhotoWallViewController.h"
 
 @interface RealTimeViewController ()
+@property (nonatomic,strong) UISegmentedControl *segmentedControl;
+@property (nonatomic,strong) PhotoWallViewController *photoWallViewController;
+@property (nonatomic,strong) PhotoAlbumViewController *photoAlbumViewController;
+@property (nonatomic,strong) UIView *photoWallView;
+@property (nonatomic,strong) UIView *photoAlbumView;
 
 @end
 
@@ -27,6 +34,7 @@
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
