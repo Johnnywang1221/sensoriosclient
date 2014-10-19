@@ -10,6 +10,8 @@
 #import "CommonDefinition.h"
 #import "RandomString.h"
 #import "CollectionData.h"
+#import "NSObject+JSONCategory.h"
+#import "PhotoWallList.h"
 
 
 @implementation SensorHTTPClient
@@ -67,6 +69,42 @@
     NSString *uploadFormatDataStr = [[NSString alloc]initWithData:uploadFormatData encoding:NSUTF8StringEncoding];
     NSLog(@"%@",uploadFormatDataStr);
     return uploadFormatDataStr;
+    
+}
+
+- (void)getPhotoWallList:(int)maxNum beginTime:(NSString *)beginTimeString{
+    //__block PhotoWallList *result;//返回值,__block使变量可以在block中被修改
+    //获取json列表
+    self.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    [params setObject:beginTimeString forKey:@"begin_time"];
+    [params setObject:@"photo_list" forKey:@"request_type"];
+    [params setObject:[NSNumber numberWithInt:maxNum] forKey:@"request_maxnum"];
+    NSMutableDictionary *postDic = [[NSMutableDictionary alloc]init];
+    NSLog(@"%@",[params toJSONString]);
+    [postDic setObject:[params toJSONString] forKey:@"upload"];
+    [self POST:GetPhotoWallListAppendURL parameters:postDic success:^(NSURLSessionDataTask *task, id responseObject) {
+        //解析返回json，构造PhotoWallList model
+        //NSString *jsonResponse = [[NSString alloc]initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding];
+        NSError *error;
+        NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:(NSData *)responseObject options:kNilOptions error:&error];
+        if(error){
+            NSLog(@"%@",error);
+            return ;
+        }
+        else{
+            //NSLog(@"%@",responseDic);
+            PhotoWallList *result;
+            result = [[PhotoWallList alloc]init];
+            result.photosNum = [[responseDic objectForKey:@"response_num"]integerValue];
+            result.photosArray = [responseDic objectForKey:@"response_photos"];
+            [self.photoWallListDelegate sucessWithPhotoWallList:result];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@",error);
+        [self.photoWallListDelegate failedWithError:error];
+    }];
+    
     
 }
 

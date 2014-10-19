@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PhotoAlbumViewController : UIViewController
+@interface PhotoAlbumViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

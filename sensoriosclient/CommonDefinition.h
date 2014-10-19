@@ -9,3 +9,4 @@
 extern NSString *const UploadBaseURL;
 extern NSString *const UploadImageAppendURL;
 extern NSString *const UploadCollectionJsonDataAppendURL;
+extern NSString *const GetPhotoWallListAppendURL;

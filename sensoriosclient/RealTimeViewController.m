@@ -9,11 +9,11 @@
 
 #import "RealTimeViewController.h"
 #import "PhotoAlbumViewController.h"
-#import "PhotoWallViewController.h"
+#import "PhotoWallViewControllerCollectionViewController.h"
 
 @interface RealTimeViewController ()
 @property (nonatomic,strong) UISegmentedControl *segmentedControl;
-@property (nonatomic,strong) PhotoWallViewController *photoWallViewController;
+@property (nonatomic,strong) PhotoWallViewControllerCollectionViewController *photoWallViewController;
 @property (nonatomic,strong) PhotoAlbumViewController *photoAlbumViewController;
 @property (nonatomic,strong) UIView *photoWallView;
 @property (nonatomic,strong) UIView *photoAlbumView;
@@ -53,20 +53,37 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"realtimeview %f\n%f\n%f\n%f",self.view.frame.origin.x,self.view.frame.origin.y,self.view.frame.size.width,self.view.frame.size.height);
     NSArray *items = [NSArray arrayWithObjects:@"实景", @"专题", nil];
     self.segmentedControl = [[UISegmentedControl alloc]initWithItems:items];
     self.navigationItem.titleView = self.segmentedControl;
     [self.segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
     self.segmentedControl.selectedSegmentIndex = 0;
-    if (!self.photoWallViewController) {
-        self.photoWallViewController = [[PhotoWallViewController alloc]init];
+    if (!self.photoAlbumViewController) {
+        
+        // 1.创建流水布局
+        
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        
+        // 2.设置每个格子的尺寸
+        layout.itemSize = CGSizeMake(250, 250);
+        
+        // 3.设置整个collectionView的内边距
+        CGFloat paddingY = 20;
+        CGFloat paddingX = 40;
+        layout.sectionInset = UIEdgeInsetsMake(paddingY, paddingX, paddingY, paddingX);
+        
+        // 4.设置每一行之间的间距
+        layout.minimumLineSpacing = paddingY;
+        self.photoWallViewController = [[PhotoWallViewControllerCollectionViewController alloc]initWithCollectionViewLayout:layout];
         self.photoWallView = self.photoWallViewController.view;
         
         [self addChildViewController:self.photoWallViewController];
         [self.view addSubview:self.photoWallView];
-        [self.photoAlbumViewController didMoveToParentViewController:self];
+        [self.photoWallViewController didMoveToParentViewController:self];
         
     }
+    
 
     self.library = [[ALAssetsLibrary alloc] init];
     
@@ -284,12 +301,12 @@
     switch (selectedSegmentIndex) {
         case 0://添加PhotoWallViewController
             if (!self.photoWallViewController) {
-                self.photoWallViewController = [[PhotoWallViewController alloc]init];
+                self.photoWallViewController = [[PhotoWallViewControllerCollectionViewController alloc]init];
                 self.photoWallView = self.photoWallViewController.view;
                 
                 [self addChildViewController:self.photoWallViewController];
                 [self.view addSubview:self.photoWallView];
-                [self.photoAlbumViewController didMoveToParentViewController:self];
+                [self.photoWallViewController didMoveToParentViewController:self];
                 
             }
             [self.view bringSubviewToFront:self.photoWallView];
@@ -299,11 +316,16 @@
         case 1://添加PhotoAlbumViewController
             if (!self.photoAlbumViewController) {
                 self.photoAlbumViewController = [[PhotoAlbumViewController alloc]init];
-                self.photoAlbumView = self.photoAlbumViewController.view;
-                [self addChildViewController:self.photoAlbumViewController];
-                [self.view addSubview:self.photoAlbumView];
-                [self.photoAlbumViewController didMoveToParentViewController:self];
             }
+            [self.photoWallViewController willMoveToParentViewController:nil];
+            [self.photoWallViewController removeFromParentViewController];
+            [self.photoWallView removeFromSuperview];
+            [self addChildViewController:self.photoAlbumViewController];
+            self.photoAlbumView = self.photoAlbumViewController.view;
+            //self.photoAlbumView.frame = self.photoWallView.frame;
+            
+            [self.view addSubview:self.photoAlbumView];
+            [self.photoAlbumViewController didMoveToParentViewController:self];
             [self.view bringSubviewToFront:self.photoAlbumView];
             
             break;
