@@ -52,6 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
     // Do any additional setup after loading the view.
     NSLog(@"realtimeview %f\n%f\n%f\n%f",self.view.frame.origin.x,self.view.frame.origin.y,self.view.frame.size.width,self.view.frame.size.height);
     NSArray *items = [NSArray arrayWithObjects:@"实景", @"专题", nil];
@@ -66,15 +67,13 @@
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         
         // 2.设置每个格子的尺寸
-        layout.itemSize = CGSizeMake(250, 250);
+        //layout.itemSize = CGSizeMake(50, 50);
         
         // 3.设置整个collectionView的内边距
-        CGFloat paddingY = 20;
-        CGFloat paddingX = 40;
-        layout.sectionInset = UIEdgeInsetsMake(paddingY, paddingX, paddingY, paddingX);
-        
-        // 4.设置每一行之间的间距
-        layout.minimumLineSpacing = paddingY;
+        layout.minimumLineSpacing = 10;
+        //layout.
+        layout.minimumInteritemSpacing = 10;
+
         self.photoWallViewController = [[PhotoWallViewControllerCollectionViewController alloc]initWithCollectionViewLayout:layout];
         self.photoWallView = self.photoWallViewController.view;
         
@@ -316,16 +315,16 @@
         case 1://添加PhotoAlbumViewController
             if (!self.photoAlbumViewController) {
                 self.photoAlbumViewController = [[PhotoAlbumViewController alloc]init];
-            }
-            [self.photoWallViewController willMoveToParentViewController:nil];
-            [self.photoWallViewController removeFromParentViewController];
-            [self.photoWallView removeFromSuperview];
+            
+      
+
             [self addChildViewController:self.photoAlbumViewController];
             self.photoAlbumView = self.photoAlbumViewController.view;
             //self.photoAlbumView.frame = self.photoWallView.frame;
             
             [self.view addSubview:self.photoAlbumView];
             [self.photoAlbumViewController didMoveToParentViewController:self];
+            }
             [self.view bringSubviewToFront:self.photoAlbumView];
             
             break;

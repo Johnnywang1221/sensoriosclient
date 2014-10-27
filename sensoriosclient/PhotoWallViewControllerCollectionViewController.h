@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SensorHTTPClient.h"
 
-@interface PhotoWallViewControllerCollectionViewController : UICollectionViewController
+@interface PhotoWallViewControllerCollectionViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout,PhotoWallListProtocol>
 
 @end

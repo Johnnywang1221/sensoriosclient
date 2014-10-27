@@ -12,4 +12,6 @@
 
 @property (nonatomic,copy)NSString *packURL;
 @property (nonatomic,copy)NSString *srcURL;
+@property (nonatomic,strong)UIImage *packImage;
+@property (nonatomic,strong)UIImage *srcImage;
 @end

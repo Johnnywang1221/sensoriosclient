@@ -72,7 +72,7 @@
     
 }
 
-- (void)getPhotoWallList:(int)maxNum beginTime:(NSString *)beginTimeString{
+- (void)getPhotoWallListWithmaxNum:(int)maxNum beginTime:(NSString *)beginTimeString{
     //__block PhotoWallList *result;//返回值,__block使变量可以在block中被修改
     //获取json列表
     self.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -107,5 +107,7 @@
     
     
 }
+#pragma mark -- download Image
+
 
 @end

@@ -26,6 +26,6 @@
 - (void)uploadImageData:(NSData *)ImageData toURL:(NSString *)urlString;
 - (void)uploadCollectionData:(CollectionData *)collectionData toURL:(NSString *)urlString;
 #pragma --getPhotoWallList
-- (void)getPhotoWallList:(int)maxNum beginTime:(NSString *)beginTimeString;
+- (void)getPhotoWallListWithmaxNum:(int)maxNum beginTime:(NSString *)beginTimeString;
 
 @end
